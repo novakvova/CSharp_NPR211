@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.Begin", "1.Begin\1.Begin.csproj", "{2DA3BFF6-DE34-48CA-B846-9910E8B72CE4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "2.Basic", "2.Basic\2.Basic.vbproj", "{D1B0387E-FD3F-44B8-A1A5-C3AE0FF0F20A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caclulator", "Caclulator\Caclulator.csproj", "{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DA3BFF6-DE34-48CA-B846-9910E8B72CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA3BFF6-DE34-48CA-B846-9910E8B72CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA3BFF6-DE34-48CA-B846-9910E8B72CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA3BFF6-DE34-48CA-B846-9910E8B72CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B0387E-FD3F-44B8-A1A5-C3AE0FF0F20A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B0387E-FD3F-44B8-A1A5-C3AE0FF0F20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B0387E-FD3F-44B8-A1A5-C3AE0FF0F20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B0387E-FD3F-44B8-A1A5-C3AE0FF0F20A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {845FEC48-34C1-49B1-8749-333EBE27D3E7}
+	EndGlobalSection
+EndGlobal
