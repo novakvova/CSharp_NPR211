@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.Begin", "1.Begin\1.Begin.csproj", "{2DA3BFF6-DE34-48CA-B846-9910E8B72CE4}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "2.Basic", "2.Basic\2.Basic.vbproj", "{D1B0387E-FD3F-44B8-A1A5-C3AE0FF0F20A}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "2.Basic", "2.Basic\2.Basic.vbproj", "{D1B0387E-FD3F-44B8-A1A5-C3AE0FF0F20A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caclulator", "Caclulator\Caclulator.csproj", "{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Caclulator", "Caclulator\Caclulator.csproj", "{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.Database", "3.Database\3.Database.csproj", "{8B629123-DAFF-4846-AC49-503F6591C391}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54145CDE-8F97-4FAB-B9E4-B5D648D28A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B629123-DAFF-4846-AC49-503F6591C391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B629123-DAFF-4846-AC49-503F6591C391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B629123-DAFF-4846-AC49-503F6591C391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B629123-DAFF-4846-AC49-503F6591C391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
