@@ -136,20 +136,32 @@ namespace _3.Database
 
         public void CreateTabels()
         {
-            string sql = "CREATE TABLE tblClients (" +
+            string sql = "CREATE TABLE tblProfessions (" +
+               "Id INT PRIMARY KEY IDENTITY(1,1)," +
+               "Name NVARCHAR(200) NOT NULL);";
+
+            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+            sqlCommand.CommandText = sql; //текст команди
+            //виконати комнаду до сервера
+            sqlCommand.ExecuteNonQuery();
+            Console.WriteLine("------Таблицю пройесії успішно створено------");
+
+
+            sql = "CREATE TABLE tblClients (" +
                 "Id INT PRIMARY KEY IDENTITY(1,1)," +
+                "ProfessionId INT NOT NULL FOREIGN KEY REFERENCES tblProfessions(Id)," +
                 "FirstName NVARCHAR(50) NOT NULL," +
                 "LastName NVARCHAR(50) NOT NULL," +
                 "Phone NVARCHAR(20) NOT NULL," +
                 "DateOfBirth DATE NULL," +
                 "CreatedDate DATETIME NOT NULL," +
                 "Sex bit NOT NULL);";
-
-            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+        
+            sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
             sqlCommand.CommandText = sql; //текст команди
             //виконати комнаду до сервера
             sqlCommand.ExecuteNonQuery();
-            Console.WriteLine("------Таблицю успішно створено------");
+            Console.WriteLine("------Таблицю клієнти успішно створено------");
         }
         //Показать список таблиць в БД
         public void ShowAllTabels()
@@ -177,8 +189,8 @@ namespace _3.Database
         public void InsertClients()
         {
             string sql = "INSERT INTO tblClients " +
-                "(FirstName, LastName, Phone, DateOfBirth, CreatedDate, Sex) " +
-                "VALUES('Назар', 'Мельник', '+380 98 89 45 144', '2004-12-08', '2023-09-10 11:15:22', 1);";
+                "(FirstName, ProfessionId, LastName, Phone, DateOfBirth, CreatedDate, Sex) " +
+                "VALUES(N'Назар', 1, N'Мельник', '+380 98 89 45 144', '2004-12-08', '2023-09-10 11:15:22', 1);";
 
             SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
             sqlCommand.CommandText = sql; //текст команди
