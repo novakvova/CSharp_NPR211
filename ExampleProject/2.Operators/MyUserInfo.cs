@@ -14,9 +14,9 @@ namespace _2.Operators
 
         public override string ToString()
         {
-            return $"{LastName} {FirstName} '\n-------------------" +
+            return $"{LastName} {FirstName} \n-------------------\n" +
                 $"{Description}" +
-                $"\n-------------------'";
+                $"\n-------------------";
         }
     }
 }
