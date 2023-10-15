@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using _3.Database.Entities;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace _3.Database
@@ -7,8 +8,8 @@ namespace _3.Database
     {
         static void Main(string[] args)
         {
-            Console.InputEncoding = Encoding.UTF8;
-            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = Encoding.Unicode;
             
             DatabaseManager databaseManager = new DatabaseManager();
             int action = 0;
@@ -69,6 +70,7 @@ namespace _3.Database
                 Console.WriteLine("\t3.Додати клієнтів (INSERT)");
                 Console.WriteLine("\t4.Показати список клієнтів");
                 Console.WriteLine("\t5.Показати список професій");
+                Console.WriteLine("\t6.Додати професію");
                 Console.Write("\t->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -100,6 +102,15 @@ namespace _3.Database
                             {
                                 Console.WriteLine(p);
                             }
+                            break;
+                        }
+                    case 6:
+                        {
+                            Profession profession = new Profession();
+                            Console.WriteLine("Вкажіть назву професії:");
+                            profession.Name = Console.ReadLine();
+                            proffesionManager.Insert(profession);
+                            Console.WriteLine("-----Професію успішно створено-----");
                             break;
                         }
                 }

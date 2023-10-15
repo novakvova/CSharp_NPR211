@@ -61,6 +61,18 @@ namespace _3.Database
             return list;
         }
 
+        /// <summary>
+        /// Додати професію
+        /// </summary>
+        public void Insert(Profession p)
+        {
+            string sql = $"INSERT INTO tblProfessions ([Name]) VALUES(N'{p.Name}');";
+            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+            sqlCommand.CommandText = sql; //текст команди
+            //виконати комнаду до сервера
+            sqlCommand.ExecuteNonQuery();
+        }
+
         public void Dispose()
         {
             _conn.Close();
