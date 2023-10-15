@@ -58,6 +58,7 @@ namespace _3.Database
         private static void workingTabels(string nameDatabase)
         {
             var databaseManager = new DatabaseManager(nameDatabase);
+            var proffesionManager = new ProfessionManager(nameDatabase);
             int action = 0;
             do
             {
@@ -67,6 +68,7 @@ namespace _3.Database
                 Console.WriteLine("\t2.Показати список таблиць в базі даних");
                 Console.WriteLine("\t3.Додати клієнтів (INSERT)");
                 Console.WriteLine("\t4.Показати список клієнтів");
+                Console.WriteLine("\t5.Показати список професій");
                 Console.Write("\t->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -89,6 +91,15 @@ namespace _3.Database
                     case 4:
                         {
                             databaseManager.ShowAllClients();
+                            break;
+                        }
+                    case 5:
+                        {
+                            var list = proffesionManager.GetList();
+                            foreach (var p in list)
+                            {
+                                Console.WriteLine(p);
+                            }
                             break;
                         }
                 }
