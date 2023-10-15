@@ -1,4 +1,5 @@
 ﻿using _3.Database.Entities;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -181,6 +182,7 @@ namespace _3.Database
         private static void workingClients(string nameDatabase)
         {
             var clientManager = new ClientManager(nameDatabase);
+            var proffesionManager = new ProfessionManager(nameDatabase);
             int action = 0;
             do
             {
@@ -203,50 +205,60 @@ namespace _3.Database
                             }
                             break;
                         }
-                    //case 2:
-                    //    {
-                    //        Profession profession = new Profession();
-                    //        Console.WriteLine("Вкажіть назву професії:");
-                    //        profession.Name = Console.ReadLine();
-                    //        proffesionManager.Insert(profession);
-                    //        Console.WriteLine("-----Професію успішно створено-----");
-                    //        break;
-                    //    }
-                    //case 3:
-                    //    {
-                    //        Console.WriteLine("Вкажіть id професії:");
-                    //        int id = int.Parse(Console.ReadLine());
-                    //        var p = proffesionManager.GetById(id);
-                    //        if (p == null)
-                    //        {
-                    //            Console.WriteLine("----Професія відстуня---");
-                    //            break;
-                    //        }
-                    //        proffesionManager.Delete(p);
-                    //        Console.WriteLine("-----Професію успішно видалено-----");
-                    //        break;
-                    //    }
+                    case 2:
+                        {
+                            Client entity = new Client();
+                            Console.WriteLine("Вкажіть прізвище клієнта:");
+                            entity.LastName = Console.ReadLine();
+                            Console.WriteLine("Вкажіть ім'я клієнта:");
+                            entity.FirstName = Console.ReadLine();
+                            Console.WriteLine("Беріть професію:");
+                            foreach (var p in proffesionManager.GetList())
+                            {
+                                Console.WriteLine(p);
+                            }
+                            Console.Write("->_");
+                            entity.ProfessionId = int.Parse(Console.ReadLine());
+                            //clientManager.Insert(entity);
+                            Console.WriteLine("-----Клієнта успішно створено-----");
+                            break;
+                        }
+                        //case 3:
+                        //    {
+                        //        Console.WriteLine("Вкажіть id професії:");
+                        //        int id = int.Parse(Console.ReadLine());
+                        //        var p = proffesionManager.GetById(id);
+                        //        if (p == null)
+                        //        {
+                        //            Console.WriteLine("----Професія відстуня---");
+                        //            break;
+                        //        }
+                        //        proffesionManager.Delete(p);
+                        //        Console.WriteLine("-----Професію успішно видалено-----");
+                        //        break;
+                        //    }
 
-                    //case 4:
-                    //    {
-                    //        Console.WriteLine("Вкажіть id професії:");
-                    //        int id = int.Parse(Console.ReadLine());
-                    //        var p = proffesionManager.GetById(id);
-                    //        if (p == null)
-                    //        {
-                    //            Console.WriteLine("----Професія відстуня---");
-                    //            break;
-                    //        }
-                    //        Console.WriteLine("Вкажіть нову назву професії: ");
-                    //        p.Name = Console.ReadLine();
-                    //        proffesionManager.Update(p);
-                    //        Console.WriteLine("-----Професію успішно змінено-----");
-                    //        break;
-                    //    }
+                        //case 4:
+                        //    {
+                        //        Console.WriteLine("Вкажіть id професії:");
+                        //        int id = int.Parse(Console.ReadLine());
+                        //        var p = proffesionManager.GetById(id);
+                        //        if (p == null)
+                        //        {
+                        //            Console.WriteLine("----Професія відстуня---");
+                        //            break;
+                        //        }
+                        //        Console.WriteLine("Вкажіть нову назву професії: ");
+                        //        p.Name = Console.ReadLine();
+                        //        proffesionManager.Update(p);
+                        //        Console.WriteLine("-----Професію успішно змінено-----");
+                        //        break;
+                        //    }
                 }
 
             } while (action != 0);
             clientManager.Dispose();
+            proffesionManager.Dispose();    
         }
     }
 }

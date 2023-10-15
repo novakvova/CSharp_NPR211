@@ -38,7 +38,7 @@ namespace _3.Database.Entities
         /// <summary>
         /// Професія Id
         /// </summary>
-        public string ProfessionId { get; set; }
+        public int ProfessionId { get; set; }
         /// <summary>
         /// Стать 1 - чоловік, 2 - жінка
         /// </summary>

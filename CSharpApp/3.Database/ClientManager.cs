@@ -65,13 +65,16 @@ namespace _3.Database
         /// </summary>
         public void Insert(Client c)
         {
-            //string sql = "INSERT INTO tblClients " +
-            //    "(FirstName, ProfessionId, LastName, Phone, DateOfBirth, CreatedDate, Sex) " +
-            //    $"VALUES(N'Назар', 1, N'Мельник', '+380 98 89 45 144', '2004-12-08', '2023-09-10 11:15:22', 1);";
-            //SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            //sqlCommand.CommandText = sql; //текст команди
-            ////виконати комнаду до сервера
-            //sqlCommand.ExecuteNonQuery();
+            //2004-12-08
+            //2023-09-10 11:15:22
+            string sql = "INSERT INTO tblClients " +
+                "(FirstName, ProfessionId, LastName, Phone, DateOfBirth, CreatedDate, Sex) " +
+                $"VALUES(N'{c.FirstName}', {c.ProfessionId}, N'{c.LastName}', " +
+                $"N'{c.Phone}', '{c.DateOfBirth}', '{c.CreatedDate}', {c.Sex});";
+            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+            sqlCommand.CommandText = sql; //текст команди
+            //виконати комнаду до сервера
+            sqlCommand.ExecuteNonQuery();
         }
 
         /// <summary>

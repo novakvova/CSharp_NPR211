@@ -186,37 +186,5 @@ namespace _3.Database
             _conn.Close();
         }
 
-        public void InsertClients()
-        {
-            string sql = "INSERT INTO tblClients " +
-                "(FirstName, ProfessionId, LastName, Phone, DateOfBirth, CreatedDate, Sex) " +
-                "VALUES(N'Назар', 1, N'Мельник', '+380 98 89 45 144', '2004-12-08', '2023-09-10 11:15:22', 1);";
-
-            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            sqlCommand.CommandText = sql; //текст команди
-            //виконати комнаду до сервера
-            sqlCommand.ExecuteNonQuery();
-            Console.WriteLine("------Додано запис------");
-        }
-
-        public void ShowAllClients()
-        {
-            //показати список БД
-            string sql = "SELECT Id, FirstName, LastName, Phone, DateOfBirth, CreatedDate, Sex " +
-                         "FROM tblClients;";
-            SqlCommand sqlCommand = _conn.CreateCommand();
-            sqlCommand.CommandText = sql;
-            //Результа сервера будемо читати через SqlDataReeader
-            using (SqlDataReader reader = sqlCommand.ExecuteReader())
-            {
-                Console.WriteLine("\tКлієнти:");
-                while (reader.Read())
-                {
-                    Console.WriteLine("\t" + reader["Id"]+"\t"+
-                        reader["LastName"]+" "+reader["FirstName"] +"\t"+
-                        reader["Phone"] + "\t" + reader["DateOfBirth"]);
-                }
-            }
-        }
     }
 }
