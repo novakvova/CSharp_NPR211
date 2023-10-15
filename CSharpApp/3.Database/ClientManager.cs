@@ -5,16 +5,16 @@ using System.Data.SqlClient;
 namespace _3.Database
 {
     /// <summary>
-    /// Керування таблицею і даними по професіям
+    /// Керування таблицею і даними по клієнтів
     /// </summary>
-    public class ProfessionManager : IDisposable
+    public class ClientManager : IDisposable
     {
         private SqlConnection _conn;
         /// <summary>
         /// Підлкючення до конкретної бази даних на сервері
         /// </summary>
         /// <param name="nameDatabase">Назва бази даних</param>
-        public ProfessionManager(string nameDatabase)
+        public ClientManager(string nameDatabase)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -30,14 +30,14 @@ namespace _3.Database
         }
 
         /// <summary>
-        /// Повертаємо список усіх професій
+        /// Повертаємо список усіх кліжнтів
         /// </summary>
-        public List<Profession> GetList()
+        public List<Client> GetList()
         {
-            List<Profession> list = new List<Profession>();
+            List<Client> list = new List<Client>();
             //показати список БД
-            string sql = "SELECT Id, Name " +
-                "FROM tblProfessions;";
+            string sql = "SELECT Id, FirstName, LastName, Phone, DateOfBirth, CreatedDate, Sex " +
+                         "FROM tblClients;";
             SqlCommand sqlCommand = _conn.CreateCommand();
             sqlCommand.CommandText = sql;
             //Результа сервера будемо читати через SqlDataReeader
@@ -45,11 +45,15 @@ namespace _3.Database
             {
                 while (reader.Read())
                 {
-                    Profession profession = new Profession();
-                    profession.Id = int.Parse(reader["Id"].ToString());
-                    //profession.Id(int.Parse(reader["Id"].ToString()));
-                    profession.Name = reader["Name"].ToString();
-                    list.Add(profession);
+                    Client entity = new Client();
+                    entity.Id = int.Parse(reader["Id"].ToString());
+                    entity.LastName = reader["LastName"].ToString();
+                    entity.FirstName = reader["FirstName"].ToString();
+                    entity.Phone = reader["Phone"].ToString();
+                    entity.DateOfBirth = reader["DateOfBirth"].ToString();
+                    entity.CreatedDate = reader["CreatedDate"].ToString();
+                    entity.Sex = Boolean.Parse(reader["Sex"].ToString());
+                    list.Add(entity);
                 }
             }
 
@@ -57,15 +61,17 @@ namespace _3.Database
         }
 
         /// <summary>
-        /// Додати професію
+        /// Додати клієнта
         /// </summary>
-        public void Insert(Profession p)
+        public void Insert(Client c)
         {
-            string sql = $"INSERT INTO tblProfessions ([Name]) VALUES(N'{p.Name}');";
-            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            sqlCommand.CommandText = sql; //текст команди
-            //виконати комнаду до сервера
-            sqlCommand.ExecuteNonQuery();
+            //string sql = "INSERT INTO tblClients " +
+            //    "(FirstName, ProfessionId, LastName, Phone, DateOfBirth, CreatedDate, Sex) " +
+            //    $"VALUES(N'Назар', 1, N'Мельник', '+380 98 89 45 144', '2004-12-08', '2023-09-10 11:15:22', 1);";
+            //SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+            //sqlCommand.CommandText = sql; //текст команди
+            ////виконати комнаду до сервера
+            //sqlCommand.ExecuteNonQuery();
         }
 
         /// <summary>

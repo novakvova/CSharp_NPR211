@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace _3.Database.Entities
 {
+    /// <summary>
+    /// Професія
+    /// </summary>
     public class Profession
     {
         private int _id;

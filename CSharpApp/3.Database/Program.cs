@@ -55,11 +55,9 @@ namespace _3.Database
         /// Робота із таблицями
         /// </summary>
         /// <param name="nameDatabase">Назва бази даних</param>
-
         private static void workingTabels(string nameDatabase)
         {
             var databaseManager = new DatabaseManager(nameDatabase);
-            var proffesionManager = new ProfessionManager(nameDatabase);
             int action = 0;
             do
             {
@@ -67,10 +65,8 @@ namespace _3.Database
                 Console.WriteLine("\t0.Вихід");
                 Console.WriteLine("\t1.Створити таблиці в базі даних");
                 Console.WriteLine("\t2.Показати список таблиць в базі даних");
-                Console.WriteLine("\t3.Додати клієнтів (INSERT)");
-                Console.WriteLine("\t4.Показати список клієнтів");
-                Console.WriteLine("\t5.Показати список професій");
-                Console.WriteLine("\t6.Додати професію");
+                Console.WriteLine("\t3.Керування клієнтами");
+                Console.WriteLine("\t5.Керування професіями");
                 Console.Write("\t->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -87,30 +83,12 @@ namespace _3.Database
                         }
                     case 3:
                         {
-                            databaseManager.InsertClients();
-                            break;
-                        }
-                    case 4:
-                        {
-                            databaseManager.ShowAllClients();
+                            workingClients(nameDatabase);
                             break;
                         }
                     case 5:
                         {
-                            var list = proffesionManager.GetList();
-                            foreach (var p in list)
-                            {
-                                Console.WriteLine(p);
-                            }
-                            break;
-                        }
-                    case 6:
-                        {
-                            Profession profession = new Profession();
-                            Console.WriteLine("Вкажіть назву професії:");
-                            profession.Name = Console.ReadLine();
-                            proffesionManager.Insert(profession);
-                            Console.WriteLine("-----Професію успішно створено-----");
+                            workingProfessionls(nameDatabase);
                             break;
                         }
                 }
@@ -119,6 +97,156 @@ namespace _3.Database
             databaseManager.Dispose();
         }
 
-        
+
+        /// <summary>
+        /// Робота із Професіями
+        /// </summary>
+        /// <param name="nameDatabase">Назва бази даних</param>
+        private static void workingProfessionls(string nameDatabase)
+        {
+            var proffesionManager = new ProfessionManager(nameDatabase);
+            int action = 0;
+            do
+            {
+                Console.WriteLine("Оберіть операцію:");
+                Console.WriteLine("\t\t0.Вихід");
+                Console.WriteLine("\t\t1.Показати список професій");
+                Console.WriteLine("\t\t2.Додати професію");
+                Console.WriteLine("\t\t3.Видалить професію");
+                Console.WriteLine("\t\t4.Оновити професію");
+                Console.Write("\t->_");
+                action = int.Parse(Console.ReadLine());
+                switch (action)
+                {
+                    case 1:
+                        {
+                            var list = proffesionManager.GetList();
+                            foreach (var p in list)
+                            {
+                                Console.WriteLine(p);
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            Profession profession = new Profession();
+                            Console.WriteLine("Вкажіть назву професії:");
+                            profession.Name = Console.ReadLine();
+                            proffesionManager.Insert(profession);
+                            Console.WriteLine("-----Професію успішно створено-----");
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("Вкажіть id професії:");
+                            int id = int.Parse(Console.ReadLine());
+                            var p = proffesionManager.GetById(id);
+                            if (p == null)
+                            {
+                                Console.WriteLine("----Професія відстуня---");
+                                break;
+                            }
+                            proffesionManager.Delete(p);
+                            Console.WriteLine("-----Професію успішно видалено-----");
+                            break;
+                        }
+
+                    case 4:
+                        {
+                            Console.WriteLine("Вкажіть id професії:");
+                            int id = int.Parse(Console.ReadLine());
+                            var p = proffesionManager.GetById(id);
+                            if (p == null)
+                            {
+                                Console.WriteLine("----Професія відстуня---");
+                                break;
+                            }
+                            Console.WriteLine("Вкажіть нову назву професії: ");
+                            p.Name = Console.ReadLine();
+                            proffesionManager.Update(p);
+                            Console.WriteLine("-----Професію успішно змінено-----");
+                            break;
+                        }
+                }
+
+            } while (action != 0);
+            proffesionManager.Dispose();
+        }
+
+
+        /// <summary>
+        /// Робота із Клієнтами
+        /// </summary>
+        /// <param name="nameDatabase">Назва бази даних</param>
+        private static void workingClients(string nameDatabase)
+        {
+            var clientManager = new ClientManager(nameDatabase);
+            int action = 0;
+            do
+            {
+                Console.WriteLine("Оберіть операцію:");
+                Console.WriteLine("\t\t0.Вихід");
+                Console.WriteLine("\t\t1.Показати список кліжнтів");
+                Console.WriteLine("\t\t2.Додати клієнта");
+                Console.WriteLine("\t\t3.Видалить кліжнта");
+                Console.WriteLine("\t\t4.Оновити кліжнта");
+                Console.Write("\t->_");
+                action = int.Parse(Console.ReadLine());
+                switch (action)
+                {
+                    case 1:
+                        {
+                            var list = clientManager.GetList();
+                            foreach (var p in list)
+                            {
+                                Console.WriteLine(p);
+                            }
+                            break;
+                        }
+                    //case 2:
+                    //    {
+                    //        Profession profession = new Profession();
+                    //        Console.WriteLine("Вкажіть назву професії:");
+                    //        profession.Name = Console.ReadLine();
+                    //        proffesionManager.Insert(profession);
+                    //        Console.WriteLine("-----Професію успішно створено-----");
+                    //        break;
+                    //    }
+                    //case 3:
+                    //    {
+                    //        Console.WriteLine("Вкажіть id професії:");
+                    //        int id = int.Parse(Console.ReadLine());
+                    //        var p = proffesionManager.GetById(id);
+                    //        if (p == null)
+                    //        {
+                    //            Console.WriteLine("----Професія відстуня---");
+                    //            break;
+                    //        }
+                    //        proffesionManager.Delete(p);
+                    //        Console.WriteLine("-----Професію успішно видалено-----");
+                    //        break;
+                    //    }
+
+                    //case 4:
+                    //    {
+                    //        Console.WriteLine("Вкажіть id професії:");
+                    //        int id = int.Parse(Console.ReadLine());
+                    //        var p = proffesionManager.GetById(id);
+                    //        if (p == null)
+                    //        {
+                    //            Console.WriteLine("----Професія відстуня---");
+                    //            break;
+                    //        }
+                    //        Console.WriteLine("Вкажіть нову назву професії: ");
+                    //        p.Name = Console.ReadLine();
+                    //        proffesionManager.Update(p);
+                    //        Console.WriteLine("-----Професію успішно змінено-----");
+                    //        break;
+                    //    }
+                }
+
+            } while (action != 0);
+            clientManager.Dispose();
+        }
     }
 }
