@@ -136,7 +136,7 @@ namespace _3.Database
 
         public void CreateTabels()
         {
-            string[] tables = { "tblProfessions" };
+            string[] tables = { "tblProfessions", "tblClients", "tblCategories" };
             foreach (string table in tables)
             {
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "SqlQuery", $"{table}.sql");
@@ -148,21 +148,6 @@ namespace _3.Database
                 Console.WriteLine("------Таблицю {0} успішно створено------", table);
             }
 
-            string sql = "CREATE TABLE tblClients (" +
-                "Id INT PRIMARY KEY IDENTITY(1,1)," +
-                "ProfessionId INT NOT NULL FOREIGN KEY REFERENCES tblProfessions(Id)," +
-                "FirstName NVARCHAR(50) NOT NULL," +
-                "LastName NVARCHAR(50) NOT NULL," +
-                "Phone NVARCHAR(20) NOT NULL," +
-                "DateOfBirth DATE NULL," +
-                "CreatedDate DATETIME NOT NULL," +
-                "Sex bit NOT NULL);";
-
-            SqlCommand sqlCommand1 = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            sqlCommand1.CommandText = sql; //текст команди
-            //виконати комнаду до сервера
-            sqlCommand1.ExecuteNonQuery();
-            Console.WriteLine("------Таблицю клієнти успішно створено------");
         }
         //Показать список таблиць в БД
         public void ShowAllTabels()
