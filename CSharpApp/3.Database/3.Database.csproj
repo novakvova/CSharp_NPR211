@@ -20,6 +20,12 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="SqlQuery\tblProductImages.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SqlQuery\tblProducts.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="SqlQuery\tblCategories.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
