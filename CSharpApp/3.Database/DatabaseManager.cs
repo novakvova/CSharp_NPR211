@@ -136,18 +136,19 @@ namespace _3.Database
 
         public void CreateTabels()
         {
-            string sql = "CREATE TABLE tblProfessions (" +
-               "Id INT PRIMARY KEY IDENTITY(1,1)," +
-               "Name NVARCHAR(200) NOT NULL);";
+            string[] tables = { "tblProfessions" };
+            foreach (string table in tables)
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "SqlQuery", $"{table}.sql");
+                string query = File.ReadAllText(path);
+                SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+                sqlCommand.CommandText = query; //текст команди
+                                              //виконати комнаду до сервера
+                sqlCommand.ExecuteNonQuery();
+                Console.WriteLine("------Таблицю {0} успішно створено------", table);
+            }
 
-            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            sqlCommand.CommandText = sql; //текст команди
-            //виконати комнаду до сервера
-            sqlCommand.ExecuteNonQuery();
-            Console.WriteLine("------Таблицю пройесії успішно створено------");
-
-
-            sql = "CREATE TABLE tblClients (" +
+            string sql = "CREATE TABLE tblClients (" +
                 "Id INT PRIMARY KEY IDENTITY(1,1)," +
                 "ProfessionId INT NOT NULL FOREIGN KEY REFERENCES tblProfessions(Id)," +
                 "FirstName NVARCHAR(50) NOT NULL," +
@@ -156,11 +157,11 @@ namespace _3.Database
                 "DateOfBirth DATE NULL," +
                 "CreatedDate DATETIME NOT NULL," +
                 "Sex bit NOT NULL);";
-        
-            sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            sqlCommand.CommandText = sql; //текст команди
+
+            SqlCommand sqlCommand1 = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+            sqlCommand1.CommandText = sql; //текст команди
             //виконати комнаду до сервера
-            sqlCommand.ExecuteNonQuery();
+            sqlCommand1.ExecuteNonQuery();
             Console.WriteLine("------Таблицю клієнти успішно створено------");
         }
         //Показать список таблиць в БД
