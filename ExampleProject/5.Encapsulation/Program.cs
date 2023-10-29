@@ -15,12 +15,14 @@ namespace _5.Encapsulation
 
             Car marry = new Car("Marry");
 
-            marry.setCurrentSpeed(-10);
+            //marry.setCurrentSpeed(-10);
+            //Виклик метода set у властивості
+            marry.CurrentSpeed = 50;
             marry.setPetName("Олена");
 
             marry.PrintState();
 
-            Car peter = new Car("Peter", 75);
+            Car peter = new Car("Peter", -75);
             peter.PrintState();
 
             Car.CountCarIntance(); 

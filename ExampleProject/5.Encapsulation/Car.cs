@@ -22,11 +22,44 @@ namespace _5.Encapsulation
         /// </summary>
         private int currentSpeed;
 
+        //Рефакторинг коду (у класі є змінна приватна, яка зберігає значення для моделі)
+        //Авто властивість - повертає і ініціалізує значення даної приватної змінної
+        public string Model { get; set; }
+
         public void setPetName(string petName) => this.petName = petName;
         public string getPetName() => this.petName;
 
-        public void setCurrentSpeed(int currentSpeed) => this.currentSpeed = currentSpeed;
-        public int getCurrentSpeed() => this.currentSpeed;
+        //public void setCurrentSpeed(int currentSpeed)
+        //{
+        //    if(currentSpeed<0)
+        //    {
+        //        var colorDefault = Console.ForegroundColor;
+        //        Console.ForegroundColor = ConsoleColor.Red;
+        //        Console.WriteLine("----Значення швидкості не можу бути мешним 0----");
+        //        Console.ForegroundColor = colorDefault;
+        //        return;
+        //    }
+        //    this.currentSpeed = currentSpeed;
+        //}
+        //public int getCurrentSpeed() => this.currentSpeed;
+
+        //Властивісті - set і get (Cвойства - Properties)
+        public int CurrentSpeed
+        {
+            set   //value - спеціальне ключове слове, яке зберігає значення спрва від знаку =
+            {
+                if (value < 0)
+                {
+                    var colorDefault = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("----Значення швидкості не можу бути мешним 0----");
+                    Console.ForegroundColor = colorDefault;
+                    return;
+                }
+                this.currentSpeed = value;
+            }
+            get => this.currentSpeed; 
+        }
 
 
         private static int count = -1;
@@ -50,7 +83,9 @@ namespace _5.Encapsulation
 
         public Car(string petName, int currentSpeed) : this(petName)
         {
-            this.currentSpeed = currentSpeed;
+            //небезпечний спосіб на пряму присвоєння
+            //this.currentSpeed = currentSpeed;
+            this.CurrentSpeed = currentSpeed; //більш безпечний спосіб, + є перевірка
         }
 
         public static void CountCarIntance() 
