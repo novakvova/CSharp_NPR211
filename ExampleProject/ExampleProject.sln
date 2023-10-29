@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.ModificatorsOutRef", "3.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.Kortadge", "4.Kortadge\4.Kortadge.csproj", "{30909E44-9D3C-4E00-9B0D-5BD6AB583D20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.Encapsulation", "5.Encapsulation\5.Encapsulation.csproj", "{A7AF6254-3111-4479-94BC-E0A200018FB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{30909E44-9D3C-4E00-9B0D-5BD6AB583D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30909E44-9D3C-4E00-9B0D-5BD6AB583D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30909E44-9D3C-4E00-9B0D-5BD6AB583D20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7AF6254-3111-4479-94BC-E0A200018FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7AF6254-3111-4479-94BC-E0A200018FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7AF6254-3111-4479-94BC-E0A200018FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7AF6254-3111-4479-94BC-E0A200018FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
