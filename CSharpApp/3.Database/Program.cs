@@ -68,6 +68,7 @@ namespace _3.Database
                 Console.WriteLine("\t2.Показати список таблиць в базі даних");
                 Console.WriteLine("\t3.Керування клієнтами");
                 Console.WriteLine("\t5.Керування професіями");
+                Console.WriteLine("\t6.Керування категоріями");
                 Console.Write("\t->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -90,6 +91,11 @@ namespace _3.Database
                     case 5:
                         {
                             workingProfessionls(nameDatabase);
+                            break;
+                        }
+                    case 6:
+                        {
+                            workingCategories(nameDatabase);
                             break;
                         }
                 }
@@ -259,6 +265,57 @@ namespace _3.Database
             } while (action != 0);
             clientManager.Dispose();
             proffesionManager.Dispose();    
+        }
+
+        /// <summary>
+        /// Робота із Категоріями
+        /// </summary>
+        /// <param name="nameDatabase">Назва бази даних</param>
+        private static void workingCategories(string nameDatabase)
+        {
+            var categoryManager = new CategoryManager(nameDatabase);
+            int action = 0;
+            do
+            {
+                Console.WriteLine("Оберіть операцію:");
+                Console.WriteLine("\t\t0.Вихід");
+                Console.WriteLine("\t\t1.Показати список категорій");
+                Console.WriteLine("\t\t2.Додати категорію");
+                Console.Write("\t->_");
+                action = int.Parse(Console.ReadLine());
+                switch (action)
+                {
+                    case 1:
+                        {
+                            var list = categoryManager.GetList();
+                            foreach (var p in list)
+                            {
+                                Console.WriteLine(p);
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            Category entity = new Category();
+                            Console.WriteLine("Вкажіть назву категорії:");
+                            entity.Name = Console.ReadLine();
+                            Console.WriteLine("Вкажіть опис категорії:");
+                            entity.Description = Console.ReadLine();
+                            Console.WriteLine("Вкажіть фото категорії:");
+                            entity.Image = Console.ReadLine();
+                            var date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                            entity.CreatedDate = date;
+                            categoryManager.Insert(entity);
+
+
+                            Console.WriteLine("-----Категорію успішно створено-----");
+                            break;
+                        }
+                        
+                }
+
+            } while (action != 0);
+            categoryManager.Dispose();
         }
     }
 }
