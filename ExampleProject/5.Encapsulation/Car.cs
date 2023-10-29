@@ -21,10 +21,20 @@ namespace _5.Encapsulation
         /// Поточна швидкість
         /// </summary>
         private int currentSpeed;
+        
+        //Коробка передач
+        private readonly string _gearBox;
+
+        public string GearBox
+        {
+            get { return _gearBox; }
+            //set { _gearBox = value; }
+        }
+
 
         //Рефакторинг коду (у класі є змінна приватна, яка зберігає значення для моделі)
         //Авто властивість - повертає і ініціалізує значення даної приватної змінної
-        public string Model { get; set; }
+        public string Model { get; set; } 
 
         public void setPetName(string petName) => this.petName = petName;
         public string getPetName() => this.petName;
@@ -72,16 +82,19 @@ namespace _5.Encapsulation
         {
             petName = "Chuck";
             currentSpeed = 10;
+            _gearBox = "Автомат";
             count++;
         }
 
-        public Car(string petName)
+        public Car(string petName, string gearBox = "Автомат")
         {
             this.petName = petName;
+            _gearBox = gearBox;
             count++;
         }
 
-        public Car(string petName, int currentSpeed) : this(petName)
+        public Car(string petName, int currentSpeed, string gearBox="Автомат") 
+            : this(petName, gearBox)
         {
             //небезпечний спосіб на пряму присвоєння
             //this.currentSpeed = currentSpeed;
@@ -96,7 +109,7 @@ namespace _5.Encapsulation
         /// </summary>
         public void PrintState() 
         { 
-            Console.WriteLine("{0} швидкість {1} км.", petName, currentSpeed); 
+            Console.WriteLine(" {0} швидкість {1} км. Коробка {2}", petName, currentSpeed, _gearBox); 
         }
 
         /// <summary>

@@ -22,7 +22,7 @@ namespace _5.Encapsulation
 
             marry.PrintState();
 
-            Car peter = new Car("Peter", -75);
+            Car peter = new Car("Peter", -75, "Механіка");
             peter.PrintState();
 
             Car.CountCarIntance(); 
