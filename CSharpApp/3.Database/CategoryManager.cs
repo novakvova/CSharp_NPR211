@@ -1,4 +1,5 @@
 ﻿using _3.Database.Entities;
+using _3.Database.Helpers;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -54,8 +55,10 @@ namespace _3.Database
             pDescription.Value = c.Description;
             sqlCommand.Parameters.Add(pDescription);
 
+            var imageName = ImageWorker.ImageSave(c.Image);
+
             SqlParameter pImage = new SqlParameter("@Image", System.Data.SqlDbType.NVarChar);
-            pImage.Value = c.Image;
+            pImage.Value = imageName;
             sqlCommand.Parameters.Add(pImage);
 
             SqlParameter pCreatedDate = new SqlParameter("@CreatedDate", System.Data.SqlDbType.DateTime);

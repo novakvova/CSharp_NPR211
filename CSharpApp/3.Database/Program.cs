@@ -301,7 +301,7 @@ namespace _3.Database
                             entity.Name = Console.ReadLine();
                             Console.WriteLine("Вкажіть опис категорії:");
                             entity.Description = Console.ReadLine();
-                            Console.WriteLine("Вкажіть фото категорії:");
+                            Console.WriteLine("Вкажіть фото url:");
                             entity.Image = Console.ReadLine();
                             var date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                             entity.CreatedDate = date;
