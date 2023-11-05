@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace _6.Imitation
 {
-    public class Person
+    /// <summary>
+    /// Абстрактний клас - можна використовувать лише для наслідування, не можна створить об'єкт
+    /// </summary>
+    public abstract class Person
     {
         private string name;
         private int age;

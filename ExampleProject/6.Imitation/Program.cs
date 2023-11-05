@@ -28,7 +28,7 @@ namespace _6.Imitation
             var random = new Random();
             for (int i = 0; i < 10; i++)
             {
-                Person p;
+                Person p; //= new Person();
                 int r = random.Next(0,2);
                 if (r == 0)
                     p = new Student("Марко", 20, 3);
