@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.Operators", "2.Operators\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.ModificatorsOutRef", "3.ModificatorsOutRef\3.ModificatorsOutRef.csproj", "{69091419-7DCC-4CF7-9BDA-E4ED1187C578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.Kortadge", "4.Kortadge\4.Kortadge.csproj", "{30909E44-9D3C-4E00-9B0D-5BD6AB583D20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.Kortadge", "4.Kortadge\4.Kortadge.csproj", "{30909E44-9D3C-4E00-9B0D-5BD6AB583D20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.Encapsulation", "5.Encapsulation\5.Encapsulation.csproj", "{A7AF6254-3111-4479-94BC-E0A200018FB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5.Encapsulation", "5.Encapsulation\5.Encapsulation.csproj", "{A7AF6254-3111-4479-94BC-E0A200018FB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.Imitation", "6.Imitation\6.Imitation.csproj", "{BD65C316-030C-470B-A5BC-DE139C6AC77B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A7AF6254-3111-4479-94BC-E0A200018FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7AF6254-3111-4479-94BC-E0A200018FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7AF6254-3111-4479-94BC-E0A200018FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD65C316-030C-470B-A5BC-DE139C6AC77B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD65C316-030C-470B-A5BC-DE139C6AC77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD65C316-030C-470B-A5BC-DE139C6AC77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD65C316-030C-470B-A5BC-DE139C6AC77B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
