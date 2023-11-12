@@ -137,7 +137,8 @@ namespace _3.Database
         public void CreateTabels()
         {
             string[] tables = { "tblProfessions", "tblClients", 
-                "tblCategories", "tblProducts", "tblProductImages" };
+                "tblCategories", "tblProducts", "tblProductImages",
+                "tblOrderStatus", "tblOrders", "tblOrderItems"};
             foreach (string table in tables)
             {
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "SqlQuery", $"{table}.sql");
