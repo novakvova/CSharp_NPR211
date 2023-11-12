@@ -37,6 +37,16 @@ namespace _6.Imitation
             return $"Ім'я: {name}\t Вік: {age}";
         }
 
+        public override bool Equals(object obj)
+        {
+            if(obj == null) return false;
+            Person p = obj as Person;
+            if(p == null) return false;
+            if(p.Name != Name) return false;
+            if(p.Age != Age) return false;
+            return true;
+        }
+
 
     }
 }

@@ -31,5 +31,15 @@ namespace _6.Imitation
             base.DisplayInfo();
             Console.WriteLine($"Курс: {course}");
         }
+
+        public override bool Equals(object obj)
+        {
+            var isEqual = base.Equals(obj);
+            if (!isEqual) return false;
+            Student s = obj as Student;
+            if (s == null) return false;
+            if (s.Course != Course) return false;
+            return true;
+        }
     }
 }

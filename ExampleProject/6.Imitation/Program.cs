@@ -23,21 +23,61 @@ namespace _6.Imitation
 
             //Person person = new Person("Іван", 24);
             //Console.WriteLine(person);
-            int a = 12;
+
+            //isAndAs();
+
+            //Person ivan = new Student("Іван Петрович", 32, 1);
+            Person ivan = new Teacher("Іван Петрович", 32, "Художник");
+            var man = new Teacher("Іван Петрович", 32, "Архітектор");
+            if(ivan.Equals(man))
+            {
+                Console.WriteLine("ivan == man :)");
+            }
+            else
+            {
+                Console.WriteLine("ivan != man :)");
+            }
+
+        }
+
+        private static void isAndAs()
+        {
+            int n = 10;
+            Object[] list = new object[10];
 
             var random = new Random();
             for (int i = 0; i < 10; i++)
             {
                 Person p; //= new Person();
-                int r = random.Next(0,2);
+                int r = random.Next(0, 2);
                 if (r == 0)
                     p = new Student("Марко", 20, 3);
                 else
                     p = new Teacher("Котик", 27, "Програміст");
-                //Console.WriteLine(p);
-                p.DisplayInfo();
-            }
 
+                list[i] = p;
+                //Console.WriteLine(p);
+                //p.DisplayInfo();
+            }
+            showListItems(list);
+        }
+
+        private static void showListItems(object[] list)
+        {
+            foreach (var item in list)
+            {
+                if (item is Student)
+                {
+                    //Student student = (Student)item;
+                    Student student = item as Student;
+                    Console.WriteLine("--------------Студент {0}----------------------", student.Course);
+                }
+                else if(item is Teacher teacher) 
+                {
+                    Console.WriteLine("--------------Викладач {0}----------------------", teacher.Profession);
+                }
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -33,5 +33,21 @@ namespace _6.Imitation
             base.DisplayInfo();
             Console.WriteLine($"Професія: {Profession}");
         }
+
+        public override string ToString()
+        {
+            string str = base.ToString();
+            return $"{str}\nПрофесія: {Profession}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            var isEqual = base.Equals(obj);
+            if (!isEqual) return false;
+            Teacher t = obj as Teacher;
+            if (t == null) return false;
+            if (t.Profession != Profession) return false;
+            return true;
+        }
     }
 }
