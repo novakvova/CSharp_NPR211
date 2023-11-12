@@ -49,5 +49,10 @@ namespace _6.Imitation
             if (t.Profession != Profession) return false;
             return true;
         }
+        public override int GetHashCode()
+        {
+            string str = Name + Age + Profession;
+            return str.GetHashCode();
+        }
     }
 }

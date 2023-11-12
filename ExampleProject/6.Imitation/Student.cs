@@ -41,5 +41,11 @@ namespace _6.Imitation
             if (s.Course != Course) return false;
             return true;
         }
+
+        public override int GetHashCode()
+        {
+            string str = Name + Age + Course;
+            return str.GetHashCode();
+        }
     }
 }

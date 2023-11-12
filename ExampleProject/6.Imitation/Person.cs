@@ -47,6 +47,12 @@ namespace _6.Imitation
             return true;
         }
 
+        public override int GetHashCode()
+        {
+            string str = Name + Age;
+            return str.GetHashCode();
+        }
+
 
     }
 }
