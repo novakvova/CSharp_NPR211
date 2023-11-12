@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -165,6 +166,22 @@ namespace _3.Database
                 while (reader.Read())
                 {
                     Console.WriteLine("\t"+reader["name"]);
+                }
+            }
+        }
+
+        public void SetInsertDataTables()
+        {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "SqlQuery", $"insertAllTebelsData.sql");
+            using (StreamReader reader = new StreamReader(path))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string query = reader.ReadLine();
+                    SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+                    sqlCommand.CommandText = query; //текст команди
+                                                    //виконати комнаду до сервера
+                    sqlCommand.ExecuteNonQuery();
                 }
             }
         }

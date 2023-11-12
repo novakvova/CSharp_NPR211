@@ -42,6 +42,9 @@
     <None Update="SqlQuery\tblClients.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="SqlQuery\insertAllTebelsData.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="SqlQuery\tblProfessions.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
