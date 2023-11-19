@@ -1,4 +1,5 @@
 ﻿using _3.Database.Entities;
+using _3.Database.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 
@@ -7,7 +8,7 @@ namespace _3.Database
     /// <summary>
     /// Керування таблицею і даними по професіям
     /// </summary>
-    public class ProfessionManager : IDisposable
+    public class ProfessionManager : IManager<Profession>
     {
         private SqlConnection _conn;
         /// <summary>

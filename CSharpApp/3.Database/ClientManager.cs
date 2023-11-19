@@ -1,4 +1,5 @@
 ﻿using _3.Database.Entities;
+using _3.Database.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 
@@ -7,7 +8,7 @@ namespace _3.Database
     /// <summary>
     /// Керування таблицею і даними по клієнтів
     /// </summary>
-    public class ClientManager : IDisposable
+    public class ClientManager : IManager<Client>
     {
         private SqlConnection _conn;
         /// <summary>
@@ -77,61 +78,24 @@ namespace _3.Database
             sqlCommand.ExecuteNonQuery();
         }
 
-        /// <summary>
-        /// Отримати професію по Id
-        /// </summary>
-        public Profession GetById(int id)
-        {
-            List<Profession> list = new List<Profession>();
-            //показати список БД
-            string sql = "SELECT Id, Name " +
-                "FROM tblProfessions " +
-                $"WHERE Id={id};";
-            SqlCommand sqlCommand = _conn.CreateCommand();
-            sqlCommand.CommandText = sql;
-            //Результа сервера будемо читати через SqlDataReeader
-            using (SqlDataReader reader = sqlCommand.ExecuteReader())
-            {
-                if(reader.Read())
-                {
-                    Profession profession = new Profession();
-                    profession.Id = int.Parse(reader["Id"].ToString());
-                    //profession.Id(int.Parse(reader["Id"].ToString()));
-                    profession.Name = reader["Name"].ToString();
-                    return profession;
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Видалить професію по Id
-        /// </summary>
-        /// <param name="profession"></param>
-        public void Delete(Profession profession)
-        {
-            string sql = $"DELETE FROM tblProfessions WHERE Id={profession.Id};";
-            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            sqlCommand.CommandText = sql; //текст команди
-            //виконати комнаду до сервера
-            sqlCommand.ExecuteNonQuery();
-        }
-
-        /// <summary>
-        /// Оновити професію
-        /// </summary>
-        public void Update(Profession p)
-        {
-            string sql = $"UPDATE tblProfessions SET Name=N'{p.Name}' WHERE Id={p.Id};";
-            SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
-            sqlCommand.CommandText = sql; //текст команди
-            //виконати комнаду до сервера
-            sqlCommand.ExecuteNonQuery();
-        }
-
         public void Dispose()
         {
             _conn.Close();
+        }
+
+        Client IManager<Client>.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Client entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Client enitty)
+        {
+            throw new NotImplementedException();
         }
     }
 }

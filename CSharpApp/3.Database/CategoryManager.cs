@@ -1,5 +1,6 @@
 ﻿using _3.Database.Entities;
 using _3.Database.Helpers;
+using _3.Database.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace _3.Database
 {
-    public class CategoryManager : IDisposable
+    public class CategoryManager : IManager<Category>
     { 
         private SqlConnection _conn;
 
@@ -101,6 +102,21 @@ namespace _3.Database
         public void Dispose()
         {
             _conn.Close();
+        }
+
+        public Category GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Category entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Category enitty)
+        {
+            throw new NotImplementedException();
         }
     }
 }
