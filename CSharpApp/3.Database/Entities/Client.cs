@@ -40,6 +40,10 @@ namespace _3.Database.Entities
         /// </summary>
         public int ProfessionId { get; set; }
         /// <summary>
+        /// Назва професії
+        /// </summary>
+        public string ProfessionName { get; set; }
+        /// <summary>
         /// Стать 1 - чоловік, 2 - жінка
         /// </summary>
         public bool Sex { get; set; }
@@ -47,8 +51,8 @@ namespace _3.Database.Entities
         public override string ToString()
         {
             return Id + "\t" +
-                        LastName + " " +FirstName + "\t" +
-                        Phone + "\t" +DateOfBirth;
+                        LastName + " " +FirstName + $"({ProfessionName})\t" +
+                        Phone + "\t" +DateOfBirth+"\t"+CreatedDate;
         }
     }
 }

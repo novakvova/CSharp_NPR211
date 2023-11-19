@@ -39,8 +39,10 @@ namespace _3.Database
         {
             List<Client> list = new List<Client>();
             //показати список БД
-            string sql = "SELECT Id, FirstName, LastName, Phone, DateOfBirth, CreatedDate, Sex " +
-                         "FROM tblClients;";
+            string sql = "SELECT c.Id, c.ProfessionId, c.FirstName, c.LastName, c.Phone, c.DateOfBirth, " +
+                "c.CreatedDate, c.Sex, p.Name as ProfessionName " +
+                "FROM tblClients  as c, tblProfessions p " +
+                "WHERE c.ProfessionId = p.Id;";
             SqlCommand sqlCommand = _conn.CreateCommand();
             sqlCommand.CommandText = sql;
             //Результа сервера будемо читати через SqlDataReeader
@@ -56,6 +58,7 @@ namespace _3.Database
                     entity.DateOfBirth = reader["DateOfBirth"].ToString();
                     entity.CreatedDate = reader["CreatedDate"].ToString();
                     entity.Sex = Boolean.Parse(reader["Sex"].ToString());
+                    entity.ProfessionName = reader["ProfessionName"].ToString();
                     list.Add(entity);
                 }
             }
