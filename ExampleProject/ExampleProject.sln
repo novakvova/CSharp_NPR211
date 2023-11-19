@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.Kortadge", "4.Kortadge\4.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5.Encapsulation", "5.Encapsulation\5.Encapsulation.csproj", "{A7AF6254-3111-4479-94BC-E0A200018FB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.Imitation", "6.Imitation\6.Imitation.csproj", "{BD65C316-030C-470B-A5BC-DE139C6AC77B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6.Imitation", "6.Imitation\6.Imitation.csproj", "{BD65C316-030C-470B-A5BC-DE139C6AC77B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.MyException", "7.MyException\7.MyException.csproj", "{0C6B7789-E728-4047-B9A1-A38DEE839ADF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BD65C316-030C-470B-A5BC-DE139C6AC77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD65C316-030C-470B-A5BC-DE139C6AC77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD65C316-030C-470B-A5BC-DE139C6AC77B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C6B7789-E728-4047-B9A1-A38DEE839ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C6B7789-E728-4047-B9A1-A38DEE839ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C6B7789-E728-4047-B9A1-A38DEE839ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C6B7789-E728-4047-B9A1-A38DEE839ADF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
