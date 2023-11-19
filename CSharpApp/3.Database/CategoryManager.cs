@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace _3.Database
 {
-    public class CategoryManager //: IManager<Category>
+    public class CategoryManager : IManager<Category>
     { 
         private SqlConnection _conn;
 
@@ -37,8 +37,17 @@ namespace _3.Database
         /// <summary>
         /// Додати категорію
         /// </summary>
-        public void Insert(Category c)
+        public void Insert()
         {
+            Category c = new Category();
+            Console.WriteLine("Вкажіть назву категорії:");
+            c.Name = Console.ReadLine();
+            Console.WriteLine("Вкажіть опис категорії:");
+            c.Description = Console.ReadLine();
+            Console.WriteLine("Вкажіть фото url:");
+            c.Image = Console.ReadLine();
+            var date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            c.CreatedDate = date;
             //2004-12-08
             //2023-09-10 11:15:22
             string sql = "INSERT INTO tblCategories " +

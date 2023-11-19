@@ -88,19 +88,20 @@ namespace _3.Database
                     case 3:
                         {
                             IManager<Client> manager = new ClientManager(nameDatabase);
-                            workingManager<Client>("---Керування клієнтами----", manager);
+                            workingManager("---Керування клієнтами----", manager);
                             break;
                         }
                     case 5:
                         {
                             IManager<Profession> manager = new ProfessionManager(nameDatabase);
-                            workingManager<Profession>("---Керування професіями----",manager);
+                            workingManager("---Керування професіями----",manager);
                             //workingProfessionls(nameDatabase);
                             break;
                         }
                     case 6:
                         {
-                            workingCategories(nameDatabase);
+                            IManager<Category> manager = new CategoryManager(nameDatabase);
+                            workingManager("---Керування категоріями----", manager);
                             break;
                         }
                     case 7:
@@ -178,60 +179,6 @@ namespace _3.Database
 
             } while (action != 0);
             manager.Dispose();
-        }
-    
-
-
-
-        /// <summary>
-        /// Робота із Категоріями
-        /// </summary>
-        /// <param name="nameDatabase">Назва бази даних</param>
-        private static void workingCategories(string nameDatabase)
-        {
-            var categoryManager = new CategoryManager(nameDatabase);
-            int action = 0;
-            do
-            {
-                Console.WriteLine("Оберіть операцію:");
-                Console.WriteLine("\t\t0.Вихід");
-                Console.WriteLine("\t\t1.Показати список категорій");
-                Console.WriteLine("\t\t2.Додати категорію");
-                Console.Write("\t->_");
-                action = int.Parse(Console.ReadLine());
-                switch (action)
-                {
-                    case 1:
-                        {
-                            var list = categoryManager.GetList();
-                            foreach (var p in list)
-                            {
-                                Console.WriteLine(p);
-                            }
-                            break;
-                        }
-                    case 2:
-                        {
-                            Category entity = new Category();
-                            Console.WriteLine("Вкажіть назву категорії:");
-                            entity.Name = Console.ReadLine();
-                            Console.WriteLine("Вкажіть опис категорії:");
-                            entity.Description = Console.ReadLine();
-                            Console.WriteLine("Вкажіть фото url:");
-                            entity.Image = Console.ReadLine();
-                            var date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-                            entity.CreatedDate = date;
-                            categoryManager.Insert(entity);
-
-
-                            Console.WriteLine("-----Категорію успішно створено-----");
-                            break;
-                        }
-                        
-                }
-
-            } while (action != 0);
-            categoryManager.Dispose();
         }
     }
 }
