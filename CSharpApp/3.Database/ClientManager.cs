@@ -29,7 +29,7 @@ namespace _3.Database
 
             _conn = new SqlConnection(conStr);
             _conn.Open();
-            _proffesionManager = new ProfessionManager(nameDatabase);
+            _proffesionManager = new ProfessionManager(_conn);
         }
 
         /// <summary>
@@ -73,6 +73,12 @@ namespace _3.Database
             c.LastName = Console.ReadLine();
             Console.WriteLine("Вкажіть ім'я клієнта:");
             c.FirstName = Console.ReadLine();
+            Console.WriteLine("Вкажіть телефон клієнта:");
+            c.Phone = Console.ReadLine();
+            Console.WriteLine("Вкажіть дату народження клієнта(2004-12-08):");
+            c.DateOfBirth = Console.ReadLine();
+            var date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            c.CreatedDate = date;
             Console.WriteLine("Беріть професію:");
             foreach (var p in _proffesionManager.GetList())
             {
@@ -86,7 +92,7 @@ namespace _3.Database
             string sql = "INSERT INTO tblClients " +
                 "(FirstName, ProfessionId, LastName, Phone, DateOfBirth, CreatedDate, Sex) " +
                 $"VALUES(N'{c.FirstName}', {c.ProfessionId}, N'{c.LastName}', " +
-                $"N'{c.Phone}', '{c.DateOfBirth}', '{c.CreatedDate}', {c.Sex});";
+                $"N'{c.Phone}', '{c.DateOfBirth}', '{c.CreatedDate}', {(c.Sex?1:0)});";
             SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
             sqlCommand.CommandText = sql; //текст команди
             //виконати комнаду до сервера

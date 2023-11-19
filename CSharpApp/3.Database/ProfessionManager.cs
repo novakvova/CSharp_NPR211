@@ -30,6 +30,11 @@ namespace _3.Database
             _conn.Open();
         }
 
+        public ProfessionManager(SqlConnection conn)
+        {
+            _conn = conn;
+        }
+
         /// <summary>
         /// Повертаємо список усіх професій
         /// </summary>
