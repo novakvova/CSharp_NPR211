@@ -8,9 +8,10 @@ namespace _3.Database
     /// <summary>
     /// Керування таблицею і даними по клієнтів
     /// </summary>
-    public class ClientManager : IManager<Client>
+    public class ClientManager: IManager<Client>
     {
         private SqlConnection _conn;
+        private readonly IManager<Profession> _proffesionManager;
         /// <summary>
         /// Підлкючення до конкретної бази даних на сервері
         /// </summary>
@@ -28,6 +29,7 @@ namespace _3.Database
 
             _conn = new SqlConnection(conStr);
             _conn.Open();
+            _proffesionManager = new ProfessionManager(nameDatabase);
         }
 
         /// <summary>
@@ -64,8 +66,21 @@ namespace _3.Database
         /// <summary>
         /// Додати клієнта
         /// </summary>
-        public void Insert(Client c)
+        public void Insert()
         {
+            Client c = new Client();
+            Console.WriteLine("Вкажіть прізвище клієнта:");
+            c.LastName = Console.ReadLine();
+            Console.WriteLine("Вкажіть ім'я клієнта:");
+            c.FirstName = Console.ReadLine();
+            Console.WriteLine("Беріть професію:");
+            foreach (var p in _proffesionManager.GetList())
+            {
+                Console.WriteLine(p);
+            }
+            Console.Write("->_");
+            c.ProfessionId = int.Parse(Console.ReadLine());
+
             //2004-12-08
             //2023-09-10 11:15:22
             string sql = "INSERT INTO tblClients " +
@@ -83,7 +98,7 @@ namespace _3.Database
             _conn.Close();
         }
 
-        Client IManager<Client>.GetById(int id)
+        public Client GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -93,7 +108,7 @@ namespace _3.Database
             throw new NotImplementedException();
         }
 
-        public void Update(Client enitty)
+        public void Update(Client entity)
         {
             throw new NotImplementedException();
         }

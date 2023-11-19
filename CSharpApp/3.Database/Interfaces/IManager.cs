@@ -20,7 +20,7 @@ namespace _3.Database.Interfaces
         /// Додати новий запис в БД
         /// </summary>
         /// <param name="entity">Сам запис</param>
-        void Insert(T entity);
+        void Insert();
         /// <summary>
         /// Повертає запис по int Id
         /// </summary>
@@ -36,6 +36,6 @@ namespace _3.Database.Interfaces
         /// Оновити запис
         /// </summary>
         /// <param name="entity">Запис, який оновляємо</param>
-        public void Update(T enitty);
+        public void Update(T entity);
     }
 }

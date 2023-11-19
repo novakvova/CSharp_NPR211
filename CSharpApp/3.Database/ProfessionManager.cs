@@ -60,8 +60,12 @@ namespace _3.Database
         /// <summary>
         /// Додати професію
         /// </summary>
-        public void Insert(Profession p)
+        public void Insert()
         {
+            Profession p = new Profession();
+            Console.WriteLine("Вкажіть назву професії:");
+            p.Name = Console.ReadLine();
+
             string sql = $"INSERT INTO tblProfessions ([Name]) VALUES(N'{p.Name}');";
             SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
             sqlCommand.CommandText = sql; //текст команди
@@ -114,6 +118,8 @@ namespace _3.Database
         /// </summary>
         public void Update(Profession p)
         {
+            Console.WriteLine("Вкажіть нову назву професії: ");
+            p.Name = Console.ReadLine();
             string sql = $"UPDATE tblProfessions SET Name=N'{p.Name}' WHERE Id={p.Id};";
             SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
             sqlCommand.CommandText = sql; //текст команди

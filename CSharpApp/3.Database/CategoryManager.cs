@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace _3.Database
 {
-    public class CategoryManager : IManager<Category>
+    public class CategoryManager //: IManager<Category>
     { 
         private SqlConnection _conn;
 
