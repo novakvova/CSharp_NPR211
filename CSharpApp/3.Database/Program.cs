@@ -67,7 +67,8 @@ namespace _3.Database
                 Console.WriteLine("\t0.Вихід");
                 Console.WriteLine("\t1.Створити таблиці в базі даних");
                 Console.WriteLine("\t2.Показати список таблиць в базі даних");
-                Console.WriteLine("\t3.Керування клієнтами");
+                Console.WriteLine("\t3.Видалить усі таблиці в базі даних");
+                Console.WriteLine("\t4.Керування клієнтами");
                 Console.WriteLine("\t5.Керування професіями");
                 Console.WriteLine("\t6.Керування категоріями");
                 Console.WriteLine("\t7.-------Заповнити таблиці даними-------");
@@ -86,6 +87,11 @@ namespace _3.Database
                             break;
                         }
                     case 3:
+                        {
+                            databaseManager.DropAllTables();
+                            break;
+                        }
+                    case 4:
                         {
                             IManager<Client> manager = new ClientManager(nameDatabase);
                             workingManager("---Керування клієнтами----", manager);

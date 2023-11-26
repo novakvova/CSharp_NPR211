@@ -1,0 +1,7 @@
+﻿IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblOrderItems]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblOrderItems;'
+IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblOrders]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblOrders;'
+IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblOrderStatus]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblOrderStatus;'
+IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblClients]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblClients;'
+IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblProductImages]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblProductImages;'
+IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblProducts]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblProducts;'
+IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblProfessions]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblProfessions;'

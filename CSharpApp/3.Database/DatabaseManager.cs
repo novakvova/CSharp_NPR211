@@ -134,6 +134,7 @@ namespace _3.Database
             Console.WriteLine("Успішно видалено БД :)");
         }
 
+        #region Робота із таблицями
 
         public void CreateTabels()
         {
@@ -185,6 +186,24 @@ namespace _3.Database
                 }
             }
         }
+
+        public void DropAllTables()
+        {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "SqlQuery", $"dropAllTebels.sql");
+            using (StreamReader reader = new StreamReader(path))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string query = reader.ReadLine();
+                    SqlCommand sqlCommand = _conn.CreateCommand(); //окманди виконуєються на основі підлкючення
+                    sqlCommand.CommandText = query; //текст команди
+                                                    //виконати комнаду до сервера
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        #endregion
 
         public void Dispose()
         {
