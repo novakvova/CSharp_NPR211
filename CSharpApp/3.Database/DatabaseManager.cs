@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using _3.Database.Helpers;
+using Microsoft.Extensions.Configuration;
+using SixLabors.ImageSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -173,6 +175,21 @@ namespace _3.Database
 
         public void SetInsertDataTables()
         {
+            #region Фото для категорій і товарів
+            var imageName = ImageWorker.ImageSave(
+                "https://i5.walmartimages.com/asr/b9085954-bfa6-4650-afa3-423cb1b44242.b3c7842f32cf96ddad48c2b6e7cd5fcf.jpeg",
+                "laptops.webp");
+
+            imageName = ImageWorker.ImageSave(
+                "https://content2.rozetka.com.ua/goods/images/big/287023571.jpg",
+                "tablets.webp");
+            
+            imageName = ImageWorker.ImageSave(
+                "https://content2.rozetka.com.ua/goods/images/big/319235688.jpg",
+                "mobile-phones.webp");
+            #endregion
+
+
             string path = Path.Combine(Directory.GetCurrentDirectory(), "SqlQuery", $"insertAllTebelsData.sql");
             using (StreamReader reader = new StreamReader(path))
             {

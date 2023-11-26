@@ -4,4 +4,5 @@ IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblOrde
 IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblClients]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblClients;'
 IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblProductImages]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblProductImages;'
 IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblProducts]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblProducts;'
+IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblCategories]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblCategories;'
 IF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[tblProfessions]')) EXEC dbo.sp_executesql @statement = N' DROP TABLE tblProfessions;'

@@ -14,7 +14,7 @@ namespace _3.Database.Helpers
         /// </summary>
         /// <param name="url">Адреса фото в мережі</param>
         /// <returns>Повертаємо назву фото</returns>
-        public static string ImageSave(string url)
+        public static string ImageSave(string url, string imageName=null)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace _3.Database.Helpers
                         byte[] imageBytes = response.Content.ReadAsByteArrayAsync().Result;
                         int size = 1200; //розмір фото, яке буде зберігатися
                         //Рандомна величина, яка не може повторится при генерації
-                        string fileName = Guid.NewGuid().ToString() + ".webp";
+                        string fileName = imageName ?? Guid.NewGuid().ToString() + ".webp";
                         var dir = Path.Combine(Directory.GetCurrentDirectory(), "images");
                         if(!Directory.Exists(dir))
                         {
