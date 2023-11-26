@@ -72,6 +72,7 @@ namespace _3.Database
                 Console.WriteLine("\t5.Керування професіями");
                 Console.WriteLine("\t6.Керування категоріями");
                 Console.WriteLine("\t7.-------Заповнити таблиці даними-------");
+                Console.WriteLine("\t8.Керування продуктами");
                 Console.Write("\t->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -113,6 +114,12 @@ namespace _3.Database
                     case 7:
                         {
                             databaseManager.SetInsertDataTables();
+                            break;
+                        }
+                    case 8:
+                        {
+                            IManager<Product> manager = new ProductManager(nameDatabase);
+                            workingManager("---Керування Продуктами----", manager);
                             break;
                         }
                 }
