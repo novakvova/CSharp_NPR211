@@ -20,9 +20,14 @@ namespace _3.Database.Entities
 
         public override string ToString()
         {
-            return Id + "\t" +
-                        Name +  $"({CategoryName})\t" +
-                        Price + "$\t" + Description + "\t" + CreatedDate;
+            string str = Id + "\t" +
+                        Name + $"({CategoryName})\t" +
+                        Price + "$\t" + Description + "\t" + CreatedDate+"\n\t";
+            foreach (var item in Images)
+            {
+                str += item.ToString()+"\t";
+            }
+            return str;
         }
     }
 }

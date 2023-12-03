@@ -60,6 +60,19 @@ namespace _3.Database
                     entity.CategoryId = int.Parse(reader["CategoryId"].ToString());
                     entity.CreatedDate = reader["CreatedDate"].ToString();
                     entity.Price = decimal.Parse(reader["Price"].ToString());
+                    entity.Images = new List<string>();
+                    string sqlImages = "SELECT Name " +
+                        "FROM tblProductImages tpi " +
+                        $"WHERE tpi.ProductId = {entity.Id}";
+                    SqlCommand sqlImageCommand = _conn.CreateCommand();
+                    sqlImageCommand.CommandText = sqlImages;
+                    using(SqlDataReader imageReader = sqlImageCommand.ExecuteReader())
+                    {
+                        while (imageReader.Read())
+                        {
+                            entity.Images.Add(imageReader["Name"].ToString());
+                        }
+                    }
                     list.Add(entity);
                 }
             }
