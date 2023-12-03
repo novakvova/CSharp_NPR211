@@ -12,7 +12,14 @@ namespace _11.DeletageEvent
             Car car = new Car(10,100, "Audi A7");
             //Робимо підписку на подію (буде спрацьовувать, коли в авто якісь проблеми)
             car.RegisterCarEvent(new Car.CarEventHandler(DisplayInfoCar));
+            var handler = new Car.CarEventHandler(DisplayTest);
+            car.RegisterCarEvent(handler);
             for (int i = 0; i < 6; i++)
+            {
+                car.Accelarate(20);
+            };
+            car.UnRegisterCarEvent(handler);
+            for (int i = 0; i < 2; i++)
             {
                 car.Accelarate(20);
             };
@@ -23,6 +30,11 @@ namespace _11.DeletageEvent
             Console.WriteLine("----------------------");
             Console.WriteLine(message);
             Console.WriteLine("----------------------");
+        }
+
+        static void DisplayTest(string message)
+        {
+            Console.WriteLine("++++++" + message + "+++++++++");
         }
     }
 }

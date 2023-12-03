@@ -29,7 +29,13 @@ namespace _11.DeletageEvent
         //3. Метод для реєстрації делегата
         public void RegisterCarEvent(CarEventHandler methodToCall)
         {
-            _carHandler = methodToCall;
+            //_carHandler = methodToCall;
+            _carHandler += methodToCall; //Груповий виклик методів, які привязані
+        }
+        public void UnRegisterCarEvent(CarEventHandler methodToCall)
+        {
+            //_carHandler = methodToCall;
+            _carHandler -= methodToCall; //Відвязуємо привязаний метод
         }
         //Метод для роботи класа
         public void Accelarate(int delta)
