@@ -1,4 +1,5 @@
 ﻿using _3.Database.Entities;
+using _3.Database.Helpers;
 using _3.Database.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
@@ -86,6 +87,7 @@ namespace _3.Database
         {
             var dateCreate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             string sql = "insert into tblProducts(CategoryId, Name, Description, Price, CreatedDate) " +
+                "OUTPUT INSERTED.ID " +
                 $"Values(@CategoryId, @Name, @Description, @Price, @CreatedDate);";
 
             Console.WriteLine("Оберіть категорію:");
@@ -113,9 +115,29 @@ namespace _3.Database
             sqlCommand.Parameters.Add(new("@Description", SqlDbType.NVarChar) { Value = description });
             sqlCommand.Parameters.Add(new("@Price", SqlDbType.Decimal) { Value = price });
             sqlCommand.Parameters.Add(new("@CreatedDate", SqlDbType.DateTime) { Value = DateTime.Now });
-           
-            sqlCommand.ExecuteNonQuery();
 
+            Int32 productId = (Int32)sqlCommand.ExecuteScalar();
+
+            if(productId > 0)
+            {
+                while (true)
+                {
+                    Console.WriteLine("Вкажіть url - фото товару(пустий рядок - скасувать):");
+                    string url = Console.ReadLine();
+                    if (string.IsNullOrEmpty(url))
+                    {
+                        return;
+                    }
+                    var imageName = ImageWorker.ImageSave(url);
+                    sql = "insert into tblProductImages(ProductId, Name, CreatedDate) Values(@ProductId, @Name, @CreatedDate);";
+                    sqlCommand = _conn.CreateCommand();
+                    sqlCommand.CommandText = sql;
+                    sqlCommand.Parameters.Add(new("@Name", SqlDbType.NVarChar) { Value = imageName });
+                    sqlCommand.Parameters.Add(new("@ProductId", SqlDbType.Int) { Value = productId });
+                    sqlCommand.Parameters.Add(new("@CreatedDate", SqlDbType.DateTime) { Value = DateTime.Now });
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Update(Product entity)
