@@ -2,12 +2,14 @@
 using _3.Database.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace _3.Database
 {
     public class ProductManager : IManager<Product>
     {
+        private readonly CategoryManager _categoryManager;
         private SqlConnection _conn;
         public ProductManager(string nameDatabase)
         {
@@ -22,6 +24,7 @@ namespace _3.Database
 
             _conn = new SqlConnection(conStr);
             _conn.Open();
+            _categoryManager=new CategoryManager(_conn);
         }
 
         public void Delete(Product entity)
@@ -81,7 +84,38 @@ namespace _3.Database
 
         public void Insert()
         {
-            throw new NotImplementedException();
+            var dateCreate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            string sql = "insert into tblProducts(CategoryId, Name, Description, Price, CreatedDate) " +
+                $"Values(@CategoryId, @Name, @Description, @Price, @CreatedDate);";
+
+            Console.WriteLine("Оберіть категорію:");
+            foreach (var cat in _categoryManager.GetList())
+            {
+                Console.WriteLine($"{cat.Id} - {cat.Name}");
+            }
+            Console.Write("->_");
+            int catId = int.Parse(Console.ReadLine());
+
+            Console.Write("Вкажіть назву: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Вкажіть опис: ");
+            string description = Console.ReadLine();
+
+            Console.Write("Вкажіть ціну: ");
+            decimal price = Decimal.Parse(Console.ReadLine());
+
+            SqlCommand sqlCommand = _conn.CreateCommand();
+            sqlCommand.CommandText = sql;
+
+            sqlCommand.Parameters.Add(new("@Name", SqlDbType.NVarChar) { Value = name });
+            sqlCommand.Parameters.Add(new("@CategoryId", SqlDbType.Int) { Value = catId });
+            sqlCommand.Parameters.Add(new("@Description", SqlDbType.NVarChar) { Value = description });
+            sqlCommand.Parameters.Add(new("@Price", SqlDbType.Decimal) { Value = price });
+            sqlCommand.Parameters.Add(new("@CreatedDate", SqlDbType.DateTime) { Value = DateTime.Now });
+           
+            sqlCommand.ExecuteNonQuery();
+
         }
 
         public void Update(Product entity)

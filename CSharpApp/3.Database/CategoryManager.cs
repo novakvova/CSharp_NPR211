@@ -33,6 +33,14 @@ namespace _3.Database
             _conn = new SqlConnection(conStr);
             _conn.Open();
         }
+        /// <summary>
+        /// Якщо зяднання уже є
+        /// </summary>
+        /// <param name="conn">зяднання до БД</param>
+        public CategoryManager(SqlConnection conn)
+        {
+            _conn = conn;
+        }
 
         /// <summary>
         /// Додати категорію
