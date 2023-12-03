@@ -17,9 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6.Imitation", "6.Imitation\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7.MyException", "7.MyException\7.MyException.csproj", "{0C6B7789-E728-4047-B9A1-A38DEE839ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.MyYield", "8.MyYield\8.MyYield.csproj", "{0B82CCC4-2A09-4D32-86D2-E3D020E27ECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "8.MyYield", "8.MyYield\8.MyYield.csproj", "{0B82CCC4-2A09-4D32-86D2-E3D020E27ECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9.Collection", "9.Collection\9.Collection.csproj", "{8DDD4CF3-D526-427C-98C8-B3C9AE0B129E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "9.Collection", "9.Collection\9.Collection.csproj", "{8DDD4CF3-D526-427C-98C8-B3C9AE0B129E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.Deleteage", "10.Deleteage\10.Deleteage.csproj", "{31956830-0161-4B9D-AB4A-124BB0C65DAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.DeletageEvent", "11.DeletageEvent\11.DeletageEvent.csproj", "{5B38963B-5EEB-4945-B136-4B908C09B322}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,14 @@ Global
 		{8DDD4CF3-D526-427C-98C8-B3C9AE0B129E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DDD4CF3-D526-427C-98C8-B3C9AE0B129E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DDD4CF3-D526-427C-98C8-B3C9AE0B129E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31956830-0161-4B9D-AB4A-124BB0C65DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31956830-0161-4B9D-AB4A-124BB0C65DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31956830-0161-4B9D-AB4A-124BB0C65DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31956830-0161-4B9D-AB4A-124BB0C65DAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B38963B-5EEB-4945-B136-4B908C09B322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B38963B-5EEB-4945-B136-4B908C09B322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B38963B-5EEB-4945-B136-4B908C09B322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B38963B-5EEB-4945-B136-4B908C09B322}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
