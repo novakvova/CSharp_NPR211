@@ -37,5 +37,10 @@ namespace _3.Database.Interfaces
         /// </summary>
         /// <param name="entity">Запис, який оновляємо</param>
         public void Update(T entity);
+        /// <summary>
+        /// Генерація рандомом вказаної кількості записів
+        /// </summary>
+        /// <param name="count">Необхідна кількість записів</param>
+        public void GenerateRandom(int count);
     }
 }

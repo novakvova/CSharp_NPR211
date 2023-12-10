@@ -136,5 +136,10 @@ namespace _3.Database
         {
             _conn.Close();
         }
+
+        public void GenerateRandom(int count)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -140,6 +140,7 @@ namespace _3.Database
                 Console.WriteLine("\t\t2.Додати");
                 Console.WriteLine("\t\t3.Видалить");
                 Console.WriteLine("\t\t4.Оновити");
+                Console.WriteLine("\t\t5.Генерація рандом");
                 Console.Write("\t->_");
                 action = int.Parse(Console.ReadLine());
                 switch (action)
@@ -186,6 +187,14 @@ namespace _3.Database
                             }
                             manager.Update(p);
                             Console.WriteLine("-----Запис успішно змінено-----");
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.WriteLine("Вкажіть кількість:");
+                            int n = int.Parse(Console.ReadLine());
+                            manager.GenerateRandom(n);
+                            Console.WriteLine("-----Запис успішно згенеровані-----");
                             break;
                         }
                 }

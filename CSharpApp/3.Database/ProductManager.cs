@@ -38,6 +38,11 @@ namespace _3.Database
             _conn.Close();
         }
 
+        public void GenerateRandom(int count)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product GetById(int id)
         {
             throw new NotImplementedException();

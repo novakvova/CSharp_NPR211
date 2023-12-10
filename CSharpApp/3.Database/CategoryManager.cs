@@ -135,5 +135,10 @@ namespace _3.Database
         {
             throw new NotImplementedException();
         }
+
+        public void GenerateRandom(int count)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
