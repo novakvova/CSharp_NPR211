@@ -33,10 +33,7 @@ namespace _12.Events
         {
             if(carIdDead)
             {
-                if(CarEvent != null)
-                {
-                    CarEvent($"Вибач, але авто ви зломали... Завмер на відмітці {CurrentSpeed}");
-                }
+                CarEvent?.Invoke($"Вибач, але авто ви зломали... Завмер на відмітці {CurrentSpeed}");
             }
             else
             {
