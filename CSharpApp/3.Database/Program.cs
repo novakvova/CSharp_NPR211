@@ -130,6 +130,7 @@ namespace _3.Database
 
         private static void workingManager<T>(string title, IManager<T> manager)
         {
+            //manager.InsertCount += Manager_InsertCount;
             int action = 0;
             do
             {
@@ -201,6 +202,15 @@ namespace _3.Database
 
             } while (action != 0);
             manager.Dispose();
+        }
+
+        private static void Manager_InsertCount(int count)
+        {
+            var defaultColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"-----Додано {count}------");
+            Console.ForegroundColor = defaultColor;
+
         }
     }
 }

@@ -1,0 +1,2 @@
+Реалізувати усі методи у класі ClientManager, які є  
+throw new NotImplementedException(); 

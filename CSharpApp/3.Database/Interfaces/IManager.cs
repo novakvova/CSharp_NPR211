@@ -7,10 +7,16 @@ using System.Threading.Tasks;
 
 namespace _3.Database.Interfaces
 {
+    public delegate void InsertCountDelegate(int count);
+
     //Описує набір методів, якими має володіти сам об'єкт
     //Виконання опрецій над певною таблицею
     public interface IManager<T> : IDisposable
     {
+        /// <summary>
+        /// Інформація про кільість доданих запписів
+        /// </summary>
+        event InsertCountDelegate InsertCount;
         /// <summary>
         /// Списко об'єктів таблиці
         /// </summary>

@@ -15,6 +15,8 @@ namespace _3.Database
     { 
         private SqlConnection _conn;
 
+        public event InsertCountDelegate InsertCount;
+
         /// <summary>
         /// Підлкючення до конкретної бази даних на сервері
         /// </summary>

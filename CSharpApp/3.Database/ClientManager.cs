@@ -13,6 +13,9 @@ namespace _3.Database
     {
         private SqlConnection _conn;
         private readonly IManager<Profession> _proffesionManager;
+
+        public event InsertCountDelegate InsertCount;
+
         /// <summary>
         /// Підлкючення до конкретної бази даних на сервері
         /// </summary>
@@ -149,6 +152,7 @@ namespace _3.Database
                 sqlCommand.CommandText = sql; //текст команди
                                               //виконати комнаду до сервера
                 sqlCommand.ExecuteNonQuery();
+                InsertCount?.Invoke(i+1);
             }
         }
     }
