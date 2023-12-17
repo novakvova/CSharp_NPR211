@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10.Deleteage", "10.Deleteag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11.DeletageEvent", "11.DeletageEvent\11.DeletageEvent.csproj", "{5B38963B-5EEB-4945-B136-4B908C09B322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.Events", "12.Events\12.Events.csproj", "{82A4387E-11C3-42E6-8CF9-932FDD4C3F1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12.Events", "12.Events\12.Events.csproj", "{82A4387E-11C3-42E6-8CF9-932FDD4C3F1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13.SimleForm", "13.SimleForm\13.SimleForm.csproj", "{6A65E583-BE87-439A-B2AB-E491F1BD6D32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{82A4387E-11C3-42E6-8CF9-932FDD4C3F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82A4387E-11C3-42E6-8CF9-932FDD4C3F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82A4387E-11C3-42E6-8CF9-932FDD4C3F1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A65E583-BE87-439A-B2AB-E491F1BD6D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A65E583-BE87-439A-B2AB-E491F1BD6D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A65E583-BE87-439A-B2AB-E491F1BD6D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A65E583-BE87-439A-B2AB-E491F1BD6D32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
