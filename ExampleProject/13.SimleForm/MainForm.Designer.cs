@@ -30,11 +30,17 @@
         {
             btnSearch = new Button();
             txtName = new TextBox();
+            menuHead = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            fileExit = new ToolStripMenuItem();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            optionsConnectionDB = new ToolStripMenuItem();
+            menuHead.SuspendLayout();
             SuspendLayout();
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(645, 37);
+            btnSearch.Location = new Point(639, 92);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 0;
@@ -44,10 +50,48 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(25, 37);
+            txtName.Location = new Point(19, 92);
             txtName.Name = "txtName";
             txtName.Size = new Size(125, 27);
             txtName.TabIndex = 1;
+            // 
+            // menuHead
+            // 
+            menuHead.ImageScalingSize = new Size(20, 20);
+            menuHead.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, optionsToolStripMenuItem });
+            menuHead.Location = new Point(0, 0);
+            menuHead.Name = "menuHead";
+            menuHead.Size = new Size(800, 28);
+            menuHead.TabIndex = 2;
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fileExit });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(59, 24);
+            fileToolStripMenuItem.Text = "Файл";
+            // 
+            // fileExit
+            // 
+            fileExit.Name = "fileExit";
+            fileExit.ShortcutKeys = Keys.Control | Keys.X;
+            fileExit.Size = new Size(180, 26);
+            fileExit.Text = "Вихід";
+            fileExit.Click += fileExit_Click;
+            // 
+            // optionsToolStripMenuItem
+            // 
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { optionsConnectionDB });
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            optionsToolStripMenuItem.Size = new Size(125, 24);
+            optionsToolStripMenuItem.Text = "Налаштування";
+            // 
+            // optionsConnectionDB
+            // 
+            optionsConnectionDB.Name = "optionsConnectionDB";
+            optionsConnectionDB.Size = new Size(228, 26);
+            optionsConnectionDB.Text = "Підключення до БД";
+            optionsConnectionDB.Click += optionsConnectionDB_Click;
             // 
             // MainForm
             // 
@@ -56,8 +100,12 @@
             ClientSize = new Size(800, 450);
             Controls.Add(txtName);
             Controls.Add(btnSearch);
+            Controls.Add(menuHead);
+            MainMenuStrip = menuHead;
             Name = "MainForm";
             Text = "Магазин";
+            menuHead.ResumeLayout(false);
+            menuHead.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -66,5 +114,10 @@
 
         private Button btnSearch;
         private TextBox txtName;
+        private MenuStrip menuHead;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem fileExit;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem optionsConnectionDB;
     }
 }

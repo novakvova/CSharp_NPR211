@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System.Data.SqlClient;
+
 
 namespace _13.SimleForm.Options
 {
@@ -14,9 +16,9 @@ namespace _13.SimleForm.Options
 
             IConfiguration configuration = builder.Build();
 
-            txtServerHost.Text = configuration.GetConnectionString("host");
-            txtUserName.Text = configuration.GetConnectionString("user");
-            txtUserPasssword.Text = configuration.GetConnectionString("password");
+            txtServerHost.Text = configuration.GetConnectionString("Host");
+            txtUserName.Text = configuration.GetConnectionString("User");
+            txtUserPasssword.Text = configuration.GetConnectionString("Password");
         }
 
         private void btnCheckConnection_Click(object sender, EventArgs e)
@@ -33,9 +35,32 @@ namespace _13.SimleForm.Options
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Помилка підключення!!! "+ex.Message);
+                MessageBox.Show("Помилка підключення!!! " + ex.Message);
             }
 
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SettingOptions opt = new SettingOptions();
+            opt.ConnectionStrings = new ConnectionStrings()
+            {
+                Host = txtServerHost.Text,
+                User = txtUserName.Text,
+                Password = txtUserPasssword.Text
+            };
+            string path = Path.Combine(Directory.GetCurrentDirectory(),
+                "appsettings.json");
+
+            using StreamWriter file = File.CreateText(path);
+            JsonSerializer serializer = new JsonSerializer { Formatting = Formatting.Indented };
+            serializer.Serialize(file, opt);
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

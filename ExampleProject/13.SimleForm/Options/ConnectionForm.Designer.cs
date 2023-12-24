@@ -44,9 +44,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Blue;
-            label1.Location = new Point(22, 21);
+            label1.Location = new Point(22, 18);
             label1.Name = "label1";
-            label1.Size = new Size(67, 21);
+            label1.Size = new Size(82, 28);
             label1.TabIndex = 0;
             label1.Text = "Сервер";
             // 
@@ -54,7 +54,7 @@
             // 
             txtServerHost.Location = new Point(22, 45);
             txtServerHost.Name = "txtServerHost";
-            txtServerHost.Size = new Size(285, 29);
+            txtServerHost.Size = new Size(285, 34);
             txtServerHost.TabIndex = 1;
             // 
             // btnSave
@@ -62,29 +62,31 @@
             btnSave.ForeColor = Color.Blue;
             btnSave.Location = new Point(343, 21);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(109, 39);
+            btnSave.Size = new Size(113, 39);
             btnSave.TabIndex = 2;
             btnSave.Text = "Зберегти";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
             btnCancel.ForeColor = Color.Red;
             btnCancel.Location = new Point(343, 66);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(109, 39);
+            btnCancel.Size = new Size(113, 39);
             btnCancel.TabIndex = 3;
             btnCancel.Text = "Скасувати";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Blue;
-            label2.Location = new Point(22, 83);
+            label2.Location = new Point(22, 80);
             label2.Name = "label2";
-            label2.Size = new Size(102, 21);
+            label2.Size = new Size(127, 28);
             label2.TabIndex = 0;
             label2.Text = "Користувач";
             // 
@@ -92,14 +94,14 @@
             // 
             txtUserName.Location = new Point(22, 107);
             txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(285, 29);
+            txtUserName.Size = new Size(285, 34);
             txtUserName.TabIndex = 1;
             // 
             // txtUserPasssword
             // 
             txtUserPasssword.Location = new Point(22, 173);
             txtUserPasssword.Name = "txtUserPasssword";
-            txtUserPasssword.Size = new Size(285, 29);
+            txtUserPasssword.Size = new Size(285, 34);
             txtUserPasssword.TabIndex = 5;
             // 
             // label3
@@ -107,9 +109,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Blue;
-            label3.Location = new Point(22, 149);
+            label3.Location = new Point(22, 146);
             label3.Name = "label3";
-            label3.Size = new Size(70, 21);
+            label3.Size = new Size(85, 28);
             label3.TabIndex = 4;
             label3.Text = "Пароль";
             // 
@@ -126,7 +128,7 @@
             // 
             // ConnectionForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(468, 282);
             Controls.Add(txtUserPasssword);
@@ -141,6 +143,7 @@
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
             Name = "ConnectionForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Підключення до сервера";
             ResumeLayout(false);
             PerformLayout();
