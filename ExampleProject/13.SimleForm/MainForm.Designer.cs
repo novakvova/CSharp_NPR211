@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             menuHead = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             fileExit = new ToolStripMenuItem();
@@ -36,6 +37,7 @@
             label1 = new Label();
             dgvDatabases = new DataGridView();
             ColName = new DataGridViewTextBoxColumn();
+            btnDeleteDatabase = new Button();
             menuHead.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDatabases).BeginInit();
             SuspendLayout();
@@ -93,9 +95,11 @@
             // 
             dgvDatabases.AllowUserToAddRows = false;
             dgvDatabases.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dgvDatabases.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvDatabases.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatabases.Columns.AddRange(new DataGridViewColumn[] { ColName });
-            dgvDatabases.Location = new Point(12, 163);
+            dgvDatabases.Location = new Point(12, 135);
             dgvDatabases.Name = "dgvDatabases";
             dgvDatabases.ReadOnly = true;
             dgvDatabases.RowHeadersWidth = 51;
@@ -111,11 +115,24 @@
             ColName.Name = "ColName";
             ColName.ReadOnly = true;
             // 
+            // btnDeleteDatabase
+            // 
+            btnDeleteDatabase.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDeleteDatabase.ForeColor = Color.Red;
+            btnDeleteDatabase.Location = new Point(912, 568);
+            btnDeleteDatabase.Name = "btnDeleteDatabase";
+            btnDeleteDatabase.Size = new Size(142, 50);
+            btnDeleteDatabase.TabIndex = 5;
+            btnDeleteDatabase.Text = "Видалить";
+            btnDeleteDatabase.UseVisualStyleBackColor = true;
+            btnDeleteDatabase.Click += btnDeleteDatabase_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1066, 592);
+            ClientSize = new Size(1066, 630);
+            Controls.Add(btnDeleteDatabase);
             Controls.Add(dgvDatabases);
             Controls.Add(label1);
             Controls.Add(menuHead);
@@ -140,5 +157,6 @@
         private Label label1;
         private DataGridView dgvDatabases;
         private DataGridViewTextBoxColumn ColName;
+        private Button btnDeleteDatabase;
     }
 }

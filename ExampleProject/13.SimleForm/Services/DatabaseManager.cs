@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Xml.Linq;
 
 namespace _13.SimleForm.Services
 {
@@ -47,6 +48,50 @@ namespace _13.SimleForm.Services
                 }
             }
             return list;
+        }
+
+        /// <summary>
+        /// Перевірка існування БД на сервері
+        /// </summary>
+        /// <param name="name">Назва бази</param>
+        /// <param name="conStr">Строка підлкючення</param>
+        /// <returns>Повертає bool, True - якщо існує</returns>
+        private bool IsExistDatabase(string name)
+        {
+            //Перевірка чи існує база даних
+            string sql = $"IF EXISTS (SELECT name FROM sys.databases WHERE name = '{name}')" +
+                " SELECT 1 AS Result" +
+                " ELSE" +
+                " SELECT 0 AS Result";
+            SqlCommand cmd = _con.CreateCommand();
+            cmd.CommandText = sql;
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    int result = int.Parse(reader["Result"].ToString());
+                    if (result > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public void DeleteDatabase(string databaseName)
+        {
+            var isEsixt = IsExistDatabase(databaseName);
+            if (!isEsixt)
+            {
+                MessageBox.Show("База даних не існує"+databaseName);
+                return;
+            }
+            string sql = $"DROP DATABASE {databaseName};";
+            SqlCommand sqlCommand = _con.CreateCommand(); //команди виконуєються на основі підлкючення
+            sqlCommand.CommandText = sql; //текст команди
+            //виконати комнаду до сервера
+            sqlCommand.ExecuteNonQuery();
         }
     }
 }

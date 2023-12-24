@@ -23,6 +23,11 @@ namespace _13.SimleForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoadListDatabase();
+        }
+
+        private void LoadListDatabase()
+        {
             dgvDatabases.Rows.Clear();
             DatabaseManager databaseManager = new DatabaseManager();
             var list = databaseManager.GetListDatabases();
@@ -31,6 +36,16 @@ namespace _13.SimleForm
                 object[] row = { name };
                 dgvDatabases.Rows.Add(row);
             }
+        }
+
+        private void btnDeleteDatabase_Click(object sender, EventArgs e)
+        {
+            int index = dgvDatabases.CurrentCell.RowIndex;
+            string name = (string)dgvDatabases.Rows[index].Cells[0].Value;
+            DatabaseManager databaseManager = new DatabaseManager();
+            databaseManager.DeleteDatabase(name);
+            //MessageBox.Show("Row index", name);
+            LoadListDatabase();
         }
     }
 }
