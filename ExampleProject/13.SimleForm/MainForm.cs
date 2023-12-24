@@ -9,12 +9,6 @@ namespace _13.SimleForm
             InitializeComponent();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            string name = txtName.Text;
-            MessageBox.Show("Привіт " + name);
-        }
-
         private void fileExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -24,6 +18,13 @@ namespace _13.SimleForm
         {
             ConnectionForm connectionForm = new ConnectionForm();
             connectionForm.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            dgvDatabases.Rows.Clear();
+            object[] item = { "Іван" };
+            dgvDatabases.Rows.Add(item);
         }
     }
 }

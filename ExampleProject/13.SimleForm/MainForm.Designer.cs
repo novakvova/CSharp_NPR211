@@ -28,32 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnSearch = new Button();
-            txtName = new TextBox();
             menuHead = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             fileExit = new ToolStripMenuItem();
             optionsToolStripMenuItem = new ToolStripMenuItem();
             optionsConnectionDB = new ToolStripMenuItem();
+            label1 = new Label();
+            dgvDatabases = new DataGridView();
+            ColName = new DataGridViewTextBoxColumn();
             menuHead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatabases).BeginInit();
             SuspendLayout();
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(639, 92);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 29);
-            btnSearch.TabIndex = 0;
-            btnSearch.Text = "Нажми мене";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(19, 92);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(125, 27);
-            txtName.TabIndex = 1;
             // 
             // menuHead
             // 
@@ -61,7 +46,7 @@
             menuHead.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, optionsToolStripMenuItem });
             menuHead.Location = new Point(0, 0);
             menuHead.Name = "menuHead";
-            menuHead.Size = new Size(800, 28);
+            menuHead.Size = new Size(1066, 28);
             menuHead.TabIndex = 2;
             // 
             // fileToolStripMenuItem
@@ -93,31 +78,67 @@
             optionsConnectionDB.Text = "Підключення до БД";
             optionsConnectionDB.Click += optionsConnectionDB_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Blue;
+            label1.Location = new Point(340, 49);
+            label1.Name = "label1";
+            label1.Size = new Size(386, 41);
+            label1.TabIndex = 3;
+            label1.Text = "Керування Базами даних";
+            // 
+            // dgvDatabases
+            // 
+            dgvDatabases.AllowUserToAddRows = false;
+            dgvDatabases.AllowUserToDeleteRows = false;
+            dgvDatabases.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDatabases.Columns.AddRange(new DataGridViewColumn[] { ColName });
+            dgvDatabases.Location = new Point(12, 163);
+            dgvDatabases.Name = "dgvDatabases";
+            dgvDatabases.ReadOnly = true;
+            dgvDatabases.RowHeadersWidth = 51;
+            dgvDatabases.RowTemplate.Height = 29;
+            dgvDatabases.Size = new Size(1042, 417);
+            dgvDatabases.TabIndex = 4;
+            // 
+            // ColName
+            // 
+            ColName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColName.HeaderText = "Назва";
+            ColName.MinimumWidth = 6;
+            ColName.Name = "ColName";
+            ColName.ReadOnly = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtName);
-            Controls.Add(btnSearch);
+            ClientSize = new Size(1066, 592);
+            Controls.Add(dgvDatabases);
+            Controls.Add(label1);
             Controls.Add(menuHead);
             MainMenuStrip = menuHead;
             Name = "MainForm";
             Text = "Магазин";
+            Load += MainForm_Load;
             menuHead.ResumeLayout(false);
             menuHead.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatabases).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnSearch;
-        private TextBox txtName;
         private MenuStrip menuHead;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem fileExit;
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem optionsConnectionDB;
+        private Label label1;
+        private DataGridView dgvDatabases;
+        private DataGridViewTextBoxColumn ColName;
     }
 }
