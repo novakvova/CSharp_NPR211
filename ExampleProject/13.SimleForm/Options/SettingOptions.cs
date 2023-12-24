@@ -1,4 +1,6 @@
-﻿namespace _13.SimleForm.Options
+﻿using System.Data.SqlClient;
+
+namespace _13.SimleForm.Options
 {
     public class ConnectionStrings
     {

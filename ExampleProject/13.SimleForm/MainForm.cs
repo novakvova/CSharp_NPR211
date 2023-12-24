@@ -1,4 +1,5 @@
 using _13.SimleForm.Options;
+using _13.SimleForm.Services;
 
 namespace _13.SimleForm
 {
@@ -23,8 +24,13 @@ namespace _13.SimleForm
         private void MainForm_Load(object sender, EventArgs e)
         {
             dgvDatabases.Rows.Clear();
-            object[] item = { "Іван" };
-            dgvDatabases.Rows.Add(item);
+            DatabaseManager databaseManager = new DatabaseManager();
+            var list = databaseManager.GetListDatabases();
+            foreach (var name in list)
+            {
+                object[] row = { name };
+                dgvDatabases.Rows.Add(row);
+            }
         }
     }
 }
