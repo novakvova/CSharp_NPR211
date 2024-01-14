@@ -37,5 +37,11 @@ namespace _13.SimleForm
                 dgvTabels.Rows.Add(row);
             }
         }
+
+        private void btnGenareateTabels_Click(object sender, EventArgs e)
+        {
+            _tabelManager.CreateTabels();
+            LoadListTabels();
+        }
     }
 }

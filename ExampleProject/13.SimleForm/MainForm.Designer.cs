@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             menuHead = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             fileExit = new ToolStripMenuItem();
@@ -41,6 +41,8 @@
             txtDbName = new TextBox();
             label2 = new Label();
             btnCreateDatabase = new Button();
+            catalogMenuToolStripMenuItem = new ToolStripMenuItem();
+            categoriesWorkingToolStripMenuItem = new ToolStripMenuItem();
             menuHead.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDatabases).BeginInit();
             SuspendLayout();
@@ -48,7 +50,7 @@
             // menuHead
             // 
             menuHead.ImageScalingSize = new Size(20, 20);
-            menuHead.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, optionsToolStripMenuItem });
+            menuHead.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, catalogMenuToolStripMenuItem, optionsToolStripMenuItem });
             menuHead.Location = new Point(0, 0);
             menuHead.Name = "menuHead";
             menuHead.Size = new Size(1066, 28);
@@ -98,8 +100,8 @@
             // 
             dgvDatabases.AllowUserToAddRows = false;
             dgvDatabases.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dgvDatabases.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dgvDatabases.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvDatabases.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatabases.Columns.AddRange(new DataGridViewColumn[] { ColName });
             dgvDatabases.Location = new Point(12, 110);
@@ -161,6 +163,20 @@
             btnCreateDatabase.UseVisualStyleBackColor = true;
             btnCreateDatabase.Click += btnCreateDatabase_Click;
             // 
+            // catalogMenuToolStripMenuItem
+            // 
+            catalogMenuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesWorkingToolStripMenuItem });
+            catalogMenuToolStripMenuItem.Name = "catalogMenuToolStripMenuItem";
+            catalogMenuToolStripMenuItem.Size = new Size(77, 24);
+            catalogMenuToolStripMenuItem.Text = "Каталог";
+            // 
+            // categoriesWorkingToolStripMenuItem
+            // 
+            categoriesWorkingToolStripMenuItem.Name = "categoriesWorkingToolStripMenuItem";
+            categoriesWorkingToolStripMenuItem.Size = new Size(224, 26);
+            categoriesWorkingToolStripMenuItem.Text = "Категорії";
+            categoriesWorkingToolStripMenuItem.Click += categoriesWorkingToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -198,5 +214,7 @@
         private TextBox txtDbName;
         private Label label2;
         private Button btnCreateDatabase;
+        private ToolStripMenuItem catalogMenuToolStripMenuItem;
+        private ToolStripMenuItem categoriesWorkingToolStripMenuItem;
     }
 }

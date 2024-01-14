@@ -50,5 +50,20 @@ namespace _13.SimleForm.Services
             }
             return tabels;
         }
+
+        public void CreateTabels()
+        {
+            string[] tables = {"tblCategories"};
+            foreach (string table in tables)
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "SqlQuery", $"{table}.sql");
+                string query = File.ReadAllText(path);
+                SqlCommand sqlCommand = _con.CreateCommand(); //окманди виконуєються на основі підлкючення
+                sqlCommand.CommandText = query; //текст команди
+                                                //виконати комнаду до сервера
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
     }
 }

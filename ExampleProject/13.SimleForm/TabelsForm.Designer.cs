@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             dgvTabels = new DataGridView();
             ColName = new DataGridViewTextBoxColumn();
+            btnGenareateTabels = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTabels).BeginInit();
             SuspendLayout();
             // 
@@ -50,8 +51,8 @@
             // 
             dgvTabels.AllowUserToAddRows = false;
             dgvTabels.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dgvTabels.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dgvTabels.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvTabels.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTabels.Columns.AddRange(new DataGridViewColumn[] { ColName });
             dgvTabels.Location = new Point(12, 94);
@@ -70,11 +71,24 @@
             ColName.Name = "ColName";
             ColName.ReadOnly = true;
             // 
+            // btnGenareateTabels
+            // 
+            btnGenareateTabels.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGenareateTabels.ForeColor = Color.Blue;
+            btnGenareateTabels.Location = new Point(26, 26);
+            btnGenareateTabels.Name = "btnGenareateTabels";
+            btnGenareateTabels.Size = new Size(229, 50);
+            btnGenareateTabels.TabIndex = 9;
+            btnGenareateTabels.Text = "Генерувати таблиці";
+            btnGenareateTabels.UseVisualStyleBackColor = true;
+            btnGenareateTabels.Click += btnGenareateTabels_Click;
+            // 
             // TabelsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1169, 639);
+            Controls.Add(btnGenareateTabels);
             Controls.Add(dgvTabels);
             Controls.Add(label1);
             Name = "TabelsForm";
@@ -90,5 +104,6 @@
         private Label label1;
         private DataGridView dgvTabels;
         private DataGridViewTextBoxColumn ColName;
+        private Button btnGenareateTabels;
     }
 }

@@ -1,3 +1,4 @@
+using _13.SimleForm.Categories;
 using _13.SimleForm.Options;
 using _13.SimleForm.Services;
 using System.Windows.Forms;
@@ -82,6 +83,12 @@ namespace _13.SimleForm
                 dlg.DatabaseName = dataBaseName;
                 dlg.ShowDialog();
             }
+        }
+
+        private void categoriesWorkingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategoryCreateForm dlg = new CategoryCreateForm();
+            dlg.ShowDialog();
         }
     }
 }
