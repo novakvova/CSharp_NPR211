@@ -1,5 +1,6 @@
 using _13.SimleForm.Options;
 using _13.SimleForm.Services;
+using System.Windows.Forms;
 
 namespace _13.SimleForm
 {
@@ -62,11 +63,25 @@ namespace _13.SimleForm
                 LoadListDatabase();
                 txtDbName.Text = string.Empty;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ўось п≥шло не так");
             }
-            
+
+        }
+
+        private void dgvDatabases_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Handle the double-click event
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get the value of the double-clicked cell
+                string dataBaseName = (string)dgvDatabases.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                TabelsForm dlg = new TabelsForm();
+                dlg.DatabaseName = dataBaseName;
+                dlg.ShowDialog();
+            }
         }
     }
 }

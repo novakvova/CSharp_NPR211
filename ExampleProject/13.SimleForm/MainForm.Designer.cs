@@ -109,6 +109,7 @@
             dgvDatabases.RowTemplate.Height = 29;
             dgvDatabases.Size = new Size(1042, 417);
             dgvDatabases.TabIndex = 4;
+            dgvDatabases.CellDoubleClick += dgvDatabases_CellDoubleClick;
             // 
             // ColName
             // 
