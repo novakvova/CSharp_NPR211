@@ -47,5 +47,26 @@ namespace _13.SimleForm
             //MessageBox.Show("Row index", name);
             LoadListDatabase();
         }
+
+        /// <summary>
+        /// Додати нову БД
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCreateDatabase_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DatabaseManager databaseManager = new DatabaseManager();
+                databaseManager.CraateDatabase(txtDbName.Text);
+                LoadListDatabase();
+                txtDbName.Text = string.Empty;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Щось пішло не так");
+            }
+            
+        }
     }
 }
